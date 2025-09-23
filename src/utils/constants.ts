@@ -48,22 +48,70 @@ export const SERVICES = [
 
 export const TEAM_PLACEHOLDERS = [
   {
-    name: 'Team Member 1',
-    role: 'Lead Developer',
-    bio: 'Experienced full-stack developer with expertise in modern web technologies.',
-    image: '/placeholder-avatar.jpg',
+    name: 'Kumar Saurabh',
+    role: 'Engineering Lead',
+    bio: 'Engineering Lead with 10+ years of experience building and scaling backend systems, infrastructure, and architecture across startups and globally distributed platforms.',
+    image: '/opscorelabs-website/team/saurabh.png',
+    social: {
+      linkedin: 'https://www.linkedin.com/in/itsksaurabh/',
+      github: 'https://github.com/itsksaurabh',
+      twitter: 'https://twitter.com/itsksaurabh',
+    },
   },
   {
-    name: 'Team Member 2',
-    role: 'DevOps Engineer',
-    bio: 'Cloud infrastructure specialist focused on scalable and secure deployments.',
-    image: '/placeholder-avatar.jpg',
+    name: 'Abhishek Gupta',
+    role: 'Lead DevSecOps Engineer',
+    bio: 'Lead DevSecOps Engineer with 15+ years of experience in cloud infrastructure, automation, and scalable system deployments. Expert in Kubernetes, AWS, and CI/CD pipelines.',
+    image: '/opscorelabs-website/team/abhishek.png',
+    social: {
+      linkedin: 'https://www.linkedin.com/in/abhishek-gupta-33018046/',
+      github: 'https://github.com/abhishekgupta',
+      twitter: 'https://twitter.com/abhishekgupta',
+    },
   },
   {
-    name: 'Team Member 3',
-    role: 'Blockchain Developer',
-    bio: 'Smart contract developer with deep knowledge of DeFi and Web3 technologies.',
-    image: '/placeholder-avatar.jpg',
+    name: 'Robil Sharma',
+    role: 'Senior Blockchain & Full Stack Developer & DevOps',
+    bio: 'Senior Blockchain and Full Stack Developer with expertise in smart contracts, DeFi protocols, and modern web applications. Skilled in Solidity, React, Node.js, and DevOps.',
+    image: '/opscorelabs-website/team/robil.png',
+    social: {
+      linkedin: 'https://www.linkedin.com/in/robil-sharma/',
+      github: 'https://github.com/robilsharma',
+      twitter: 'https://twitter.com/robilsharma',
+    },
+  },
+  {
+    name: 'Vishwajeet Singh',
+    role: 'Senior Blockchain Engineer & DevOps',
+    bio: 'Senior Blockchain Engineer and DevOps specialist with deep expertise in Ethereum, smart contracts, and blockchain infrastructure. Experienced in building scalable blockchain solutions.',
+    image: '/opscorelabs-website/team/vishwajeet.png',
+    social: {
+      linkedin: 'https://www.linkedin.com/in/vishwajeety12/',
+      github: 'https://github.com/vishwajeety12',
+      twitter: 'https://twitter.com/vishwajeety12',
+    },
+  },
+  {
+    name: 'Atul Agrawal',
+    role: 'Lead Blockchain Developer',
+    bio: 'Lead Blockchain Developer and Smart Contract expert with extensive experience in Ethereum, Solidity, and Web3 technologies. Specialized in building secure, gas-optimized smart contracts.',
+    image: '/opscorelabs-website/team/atul.png',
+    social: {
+      linkedin: 'https://www.linkedin.com/in/atul-agr/',
+      github: 'https://github.com/atulagr',
+      twitter: 'https://twitter.com/atulagr',
+    },
+  },
+  {
+    name: 'Kumar Gaurav',
+    role: 'Senior Web3 Frontend Engineer',
+    bio: 'Senior Web3 Frontend Engineer with expertise in building modern, interactive user interfaces for blockchain applications. Skilled in React, TypeScript, and Web3 integration.',
+    image: '/opscorelabs-website/team/gaurav.png',
+    social: {
+      linkedin: 'https://www.linkedin.com/in/arkhaminferno/',
+      github: 'https://github.com/arkhaminferno',
+      twitter: 'https://twitter.com/arkhaminferno',
+    },
   },
 ] as const;
 

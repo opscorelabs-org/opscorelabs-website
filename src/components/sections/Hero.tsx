@@ -53,9 +53,9 @@ export const Hero: React.FC = () => {
             {SITE_CONFIG.description}
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-40"
+            className="flex justify-center items-center relative z-40"
             style={{ pointerEvents: 'auto' }}
           >
             <button
@@ -65,25 +65,10 @@ export const Hero: React.FC = () => {
                 console.log('Get Started Today clicked');
                 scrollToContact();
               }}
-                    className="bg-glow-primary text-bg-primary font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-glow-primary/50 hover:scale-105 text-base sm:text-lg relative z-50 cursor-pointer"
+              className="bg-glow-primary text-bg-primary font-semibold px-8 py-4 sm:px-12 sm:py-5 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-glow-primary/50 hover:scale-105 text-lg sm:text-xl relative z-50 cursor-pointer w-full max-w-xs sm:max-w-none"
               style={{ pointerEvents: 'auto' }}
             >
               Get Started Today
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Our Services clicked');
-                const element = document.querySelector('#services');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-                      className="border border-glow-primary text-glow-primary font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-lg transition-all duration-300 hover:bg-glow-primary hover:text-bg-primary hover:scale-105 text-base sm:text-lg relative z-50 cursor-pointer"
-              style={{ pointerEvents: 'auto' }}
-            >
-              Our Services
             </button>
           </div>
 

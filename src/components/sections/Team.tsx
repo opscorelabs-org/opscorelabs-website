@@ -23,85 +23,109 @@ export const Team: React.FC = () => {
           className="text-center mb-16"
         >
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient mb-6">
-            Meet Our Team
+            Core Team
           </h2>
           <p className="text-lg sm:text-xl text-text-secondary max-w-3xl mx-auto px-4">
             Our talented team of experts is ready to bring your vision to life with cutting-edge technology solutions.
           </p>
         </motion.div>
 
-        {/* Team Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto px-4">
-          {TEAM_PLACEHOLDERS.map((member, index) => (
+        {/* Team Grid - Fixed 3 columns with fixed height */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-5xl mx-auto px-4">
+          {[...TEAM_PLACEHOLDERS].sort(() => Math.random() - 0.5).map((member, index) => (
             <motion.div
               key={member.name}
               initial={{ opacity: 0, y: 30 }}
               animate={hasIntersected ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="h-56"
             >
               <GlowEffect intensity="medium">
-                <Card className="text-center group">
+                <Card className="text-center group h-full flex flex-col">
                   {/* Avatar */}
                   <motion.div
-                    className="relative mb-6"
+                    className="relative mb-2"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="w-32 h-32 mx-auto glass-glow rounded-lg flex items-center justify-center text-4xl font-bold text-bg-primary">
-                      {member.name.split(' ').map(n => n[0]).join('')}
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-full overflow-hidden shadow-lg">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          console.log('Team photo failed to load for', member.name, 'from path:', member.image);
+                          e.currentTarget.style.display = 'none';
+                          const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                          if (fallback) {
+                            fallback.style.display = 'flex';
+                          }
+                        }}
+                        onLoad={() => {
+                          console.log('Team photo loaded successfully for', member.name);
+                        }}
+                      />
+                      <div className="w-full h-full flex items-center justify-center text-2xl sm:text-3xl font-bold text-bg-primary bg-glow-primary/20" style={{ display: 'none' }}>
+                        {member.name.split(' ').map(n => n[0]).join('')}
+                      </div>
                     </div>
-                    <div className="absolute inset-0 rounded-lg border-2 border-glow-primary/30 group-hover:border-glow-primary transition-colors duration-300" />
                   </motion.div>
 
                   {/* Name */}
-                  <h3 className="text-2xl font-bold text-text-primary mb-2 group-hover:text-glow-primary transition-colors duration-300">
+                  <h3 className="text-xs sm:text-sm font-bold text-text-primary mb-0.5 group-hover:text-glow-primary transition-colors duration-300">
                     {member.name}
                   </h3>
 
                   {/* Role */}
-                  <div className="text-glow-primary font-semibold mb-4">
+                  <div className="text-glow-primary font-semibold mb-0.5 text-xs">
                     {member.role}
                   </div>
 
                   {/* Bio */}
-                  <p className="text-text-secondary leading-relaxed">
+                  <p className="text-text-secondary leading-tight flex-grow text-xs">
                     {member.bio}
                   </p>
 
-                  {/* Social Links Placeholder */}
-                  <div className="flex justify-center space-x-4 mt-6 relative z-40">
+                  {/* Social Links */}
+                  <div className="flex justify-center space-x-1 mt-1 relative z-40">
                     <a
-                      href="#"
+                      href={member.social?.linkedin || '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={(e) => {
-                        e.preventDefault();
-                        console.log('LinkedIn clicked');
+                        if (!member.social?.linkedin) e.preventDefault();
+                        console.log('LinkedIn clicked for', member.name);
                       }}
-                      className="w-10 h-10 glass-light rounded-lg flex items-center justify-center text-text-secondary hover:text-glow-primary hover:bg-glow-primary/10 transition-all duration-300 cursor-pointer relative z-50"
+                      className="w-4 h-4 sm:w-5 sm:h-5 glass-light rounded-lg flex items-center justify-center text-text-secondary hover:text-glow-primary hover:bg-glow-primary/10 transition-all duration-300 cursor-pointer relative z-50"
                       style={{ pointerEvents: 'auto' }}
                     >
-                      <span className="text-sm">in</span>
+                      <span className="text-xs">in</span>
                     </a>
                     <a
-                      href="#"
+                      href={member.social?.github || '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={(e) => {
-                        e.preventDefault();
-                        console.log('GitHub clicked');
+                        if (!member.social?.github) e.preventDefault();
+                        console.log('GitHub clicked for', member.name);
                       }}
-                      className="w-10 h-10 glass-light rounded-lg flex items-center justify-center text-text-secondary hover:text-glow-primary hover:bg-glow-primary/10 transition-all duration-300 cursor-pointer relative z-50"
+                      className="w-4 h-4 sm:w-5 sm:h-5 glass-light rounded-lg flex items-center justify-center text-text-secondary hover:text-glow-primary hover:bg-glow-primary/10 transition-all duration-300 cursor-pointer relative z-50"
                       style={{ pointerEvents: 'auto' }}
                     >
-                      <span className="text-sm">gh</span>
+                      <span className="text-xs">gh</span>
                     </a>
                     <a
-                      href="#"
+                      href={member.social?.twitter || '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={(e) => {
-                        e.preventDefault();
-                        console.log('Twitter clicked');
+                        if (!member.social?.twitter) e.preventDefault();
+                        console.log('Twitter clicked for', member.name);
                       }}
-                      className="w-10 h-10 glass-light rounded-lg flex items-center justify-center text-text-secondary hover:text-glow-primary hover:bg-glow-primary/10 transition-all duration-300 cursor-pointer relative z-50"
+                      className="w-4 h-4 sm:w-5 sm:h-5 glass-light rounded-lg flex items-center justify-center text-text-secondary hover:text-glow-primary hover:bg-glow-primary/10 transition-all duration-300 cursor-pointer relative z-50"
                       style={{ pointerEvents: 'auto' }}
                     >
-                      <span className="text-sm">tw</span>
+                      <span className="text-xs">tw</span>
                     </a>
                   </div>
                 </Card>
