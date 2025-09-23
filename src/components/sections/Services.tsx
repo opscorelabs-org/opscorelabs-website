@@ -14,18 +14,18 @@ export const Services: React.FC = () => {
       className="section-padding relative"
     >
       
-      <div className="container-custom relative z-30">
+      <div className="container-custom relative z-40">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={hasIntersected ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gradient mb-4 sm:mb-6">
             Our Services
           </h2>
-          <p className="text-lg sm:text-xl text-text-secondary max-w-3xl mx-auto px-4">
+          <p className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto px-4">
             We provide comprehensive technology solutions to help your business thrive in the digital age.
           </p>
         </motion.div>
@@ -45,13 +45,13 @@ export const Services: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={hasIntersected ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-16"
+          className="text-center mt-12 sm:mt-16"
         >
-          <div className="max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-text-primary mb-4">
+          <div className="max-w-2xl mx-auto px-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-text-primary mb-3 sm:mb-4">
               Ready to Transform Your Business?
             </h3>
-            <p className="text-text-secondary mb-6">
+            <p className="text-sm sm:text-base text-text-secondary mb-4 sm:mb-6">
               Let's discuss how our comprehensive technology solutions can help you achieve your goals.
             </p>
             <Button

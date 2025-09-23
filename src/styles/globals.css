@@ -559,3 +559,37 @@ body::after {
   z-index: -1;
 }
 
+/* Mobile-specific fixes */
+@media (max-width: 640px) {
+  /* Reduce background animation intensity on mobile */
+  .beautiful-bg::before,
+  .beautiful-bg::after,
+  .stunning-bg::before,
+  .stunning-bg::after {
+    opacity: 0.3;
+  }
+  
+  /* Ensure content is always visible */
+  .glass-card {
+    background: rgba(26, 26, 26, 0.9);
+    backdrop-filter: blur(15px);
+  }
+  
+  /* Improve text contrast on mobile */
+  .text-text-secondary {
+    color: #c0c0c0;
+  }
+  
+  /* Ensure proper spacing on mobile */
+  .section-padding {
+    padding: 3rem 1rem;
+  }
+  
+  /* Fix z-index issues on mobile */
+  .relative.z-30,
+  .relative.z-40 {
+    position: relative;
+    z-index: 30;
+  }
+}
+

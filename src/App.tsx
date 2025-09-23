@@ -49,7 +49,7 @@ function App() {
       <Header />
       
       {/* Main Content */}
-      <main className="relative z-20">
+      <main className="relative z-30">
         <Hero />
         <Services />
         <Team />
