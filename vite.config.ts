@@ -23,7 +23,7 @@ export default defineConfig({
     },
     chunkSizeWarningLimit: 1000,
   },
-  base: '/opscorelabs-website/',
+  base: '/',
   server: {
     port: 5173,
     host: true,
