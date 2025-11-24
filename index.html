@@ -1,51 +1,2450 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="OpsCore Labs LLC - Full-service technology consultancy specializing in frontend, backend, DevOps, cloud architecture, and blockchain solutions. Expert development services for modern businesses." />
-    <meta name="keywords" content="technology consultancy, full-stack development, DevOps, cloud architecture, blockchain, web development, mobile apps, OpsCore Labs, software consulting" />
-    <meta name="author" content="OpsCore Labs LLC" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#00d4ff" />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://opscorelabs.com/" />
-    <meta property="og:title" content="OpsCore Labs - Technology Solutions" />
-    <meta property="og:description" content="Full-service technology consultancy specializing in frontend, backend, DevOps, cloud architecture, and blockchain solutions." />
-    <meta property="og:image" content="/logo.png" />
-    <meta property="og:site_name" content="OpsCore Labs" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://opscorelabs.com/" />
-    <meta name="twitter:title" content="OpsCore Labs - Technology Solutions" />
-    <meta name="twitter:description" content="Full-service technology consultancy specializing in frontend, backend, DevOps, cloud architecture, and blockchain solutions." />
-    <meta name="twitter:image" content="/logo.png" />
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "OpsCore Labs LLC",
-      "description": "Full-service technology consultancy specializing in frontend, backend, DevOps, cloud architecture, and blockchain solutions.",
-      "url": "https://opscorelabs.com",
-      "logo": "/logo.png",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer service",
-        "availableLanguage": "English"
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OpsCore Labs – Cloud, DevOps & Blockchain Solutions for Modern Businesses</title>
+  <meta name="description" content="OpsCore Labs delivers expert cloud, DevOps, and blockchain development for modern businesses. Build scalable, secure systems with our full-service technology team.">
+  <link rel="canonical" href="https://opscorelabs.com/" />
+  <link rel="icon" href="logo.png">
+  <meta property="og:title" content="OpsCore Labs – Cloud, DevOps & Blockchain Solutions" />
+  <meta property="og:description" content="Full-service technology consultancy specializing in cloud architecture, DevOps, and blockchain solutions." />
+  <meta property="og:image" content="https://opscorelabs.com/logo.png" />
+  <meta property="og:url" content="https://opscorelabs.com/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OpsCore Labs – Cloud, DevOps & Blockchain Solutions" />
+  <meta name="twitter:description" content="Modern software, blockchain, and DevOps services from OpsCore Labs." />
+  <meta name="twitter:image" content="https://opscorelabs.com/logo.png" />
+  <meta name="twitter:site" content="@theopscorelabs" />
+  <meta name="twitter:creator" content="@theopscorelabs" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "OpsCore Labs",
+    "url": "https://opscorelabs.com/",
+    "logo": "https://opscorelabs.com/logo.png",
+    "sameAs": [
+      "https://x.com/theopscorelabs",
+      "https://www.linkedin.com/company/109899127",
+      "https://medium.com/@opscorelabsofficial",
+      "https://www.instagram.com/theopscorelabs",
+      "https://github.com/opscorelabs"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "contact@opscorelabs.com",
+      "areaServed": "Global"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://opscorelabs.com/",
+    "name": "OpsCore Labs",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://opscorelabs.com/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-1': '#050809',
+            'bg-2': '#071217',
+            'accent-c': '#00eaff',
+            'accent-g': '#00e4a5',
+            'muted': 'rgba(255,255,255,0.78)',
+            'glass': 'rgba(255,255,255,0.03)',
+            'glass-border': 'rgba(255,255,255,0.06)',
+          },
+          maxWidth: {
+            'max-w': '1200px',
+          },
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', 'sans-serif'],
+            'title': ['Inter', 'system-ui', '-apple-system', '"Segoe UI"', '"Orbitron"', 'sans-serif'],
+          },
+          backdropBlur: {
+            'glass': '12px',
+          },
+        }
       }
     }
-    </script>
+  </script>
+  <style>
+  /* Custom animations and complex 3D transforms that Tailwind can't handle */
+  @keyframes spin{from{transform:rotateY(0)}to{transform:rotateY(360deg)}}
+  .coin{
+    animation:spin 12s linear infinite;
+    will-change:transform;
+    position:relative;
+  }
+  .coin::before{
+    content:"";
+    position:absolute;
+    inset:-6%;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 32% 18%, rgba(255,255,255,0.38), rgba(255,255,255,0.1) 32%, rgba(0,0,0,0) 60%),
+      radial-gradient(circle at 70% 24%, rgba(255,150,100,0.18), rgba(0,0,0,0) 64%),
+      radial-gradient(circle at 46% 78%, rgba(90,170,255,0.2), rgba(0,0,0,0) 68%);
+    opacity:0.5;
+    filter:blur(20px);
+    pointer-events:none;
+    mix-blend-mode:screen;
+  }
+  .coin-face{
+    backface-visibility:hidden;
+    background:
+      radial-gradient(circle at 32% 28%, rgba(255,255,255,0.46) 0%, rgba(214,232,255,0.16) 26%, rgba(38,52,72,0.35) 58%, rgba(6,12,20,0.78) 85%, rgba(3,8,15,0.92) 100%),
+      conic-gradient(from 110deg at 50% 50%, rgba(255,180,130,0.22), rgba(70,150,240,0.18), rgba(0,0,0,0.75), rgba(255,180,130,0.22)),
+      radial-gradient(circle at 58% 78%, rgba(90,168,255,0.18), rgba(0,0,0,0) 70%);
+    border:1px solid rgba(255,255,255,0.22);
+    background-blend-mode:screen,normal,screen;
+    box-shadow:inset 0 20px 36px rgba(255,255,255,0.12), inset 0 -20px 30px rgba(6,14,22,0.65), 0 34px 74px rgba(0,0,0,0.58);
+  }
+  .coin-face::after{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.26);
+    pointer-events:none;
+    mix-blend-mode:screen;
+  }
+  .coin-edge{transform-style:preserve-3d;pointer-events:none}
+  .coin-edge div{backface-visibility:hidden}
+  .coin-logo-wrap{backface-visibility:hidden}
+  .coin-logo{backface-visibility:hidden;filter:drop-shadow(0 0 22px rgba(110,200,255,0.55)) saturate(1.18)}
+  
+  /* Hero section fullscreen breakout */
+  #home{margin:0 calc(-50vw + 50%)!important}
+  
+  /* Video positioning */
+  #home{
+    position:relative;
+    overflow:hidden;
+  }
+  #bg-video{
+    position:absolute;
+    top:50%;
+    left:50%;
+    min-width:100%;
+    min-height:100%;
+    width:auto;
+    height:auto;
+    transform:translate(-50%, -50%);
+    object-fit:cover;
+    pointer-events:none;
+  }
+  @media (orientation: portrait){
+    #bg-video{
+      min-width:120%;
+    }
+  }
+  
+  /* Service cards animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes iconPulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  
+  @keyframes iconRotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes glowPulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(0, 234, 255, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(0, 234, 255, 0.6);
+    }
+  }
+  
+  .service-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .service-card:nth-child(1) { animation-delay: 0.1s; }
+  .service-card:nth-child(2) { animation-delay: 0.2s; }
+  .service-card:nth-child(3) { animation-delay: 0.3s; }
+  .service-card:nth-child(4) { animation-delay: 0.4s; }
+  .service-card:nth-child(5) { animation-delay: 0.5s; }
+  .service-card:nth-child(6) { animation-delay: 0.6s; }
+  
+  .service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 234, 255, 0.2);
+  }
+  
+  .service-icon {
+    animation: iconPulse 3s ease-in-out infinite;
+  }
+  
+  .service-card:hover .service-icon {
+    animation: iconRotate 2s linear infinite, iconPulse 1s ease-in-out infinite;
+  }
+  
+  .service-card:hover .service-icon svg {
+    filter: drop-shadow(0 0 10px rgba(0, 234, 255, 0.8));
+  }
+  
+  /* About cards animations */
+  .about-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .about-card:nth-child(1) { animation-delay: 0.1s; }
+  .about-card:nth-child(2) { animation-delay: 0.2s; }
+  .about-card:nth-child(3) { animation-delay: 0.3s; }
+  
+  .about-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 234, 255, 0.2);
+  }
+  
+  .about-icon {
+    animation: iconPulse 3s ease-in-out infinite;
+  }
+  
+  .about-card:hover .about-icon {
+    animation: iconRotate 2s linear infinite, iconPulse 1s ease-in-out infinite;
+  }
+  
+  .about-card:hover .about-icon svg {
+    filter: drop-shadow(0 0 10px rgba(0, 234, 255, 0.8));
+  }
+  
+  /* Tech cards animations */
+  .tech-card {
+    position:relative;
+    overflow:hidden;
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+    border-radius:22px;
+  }
+  
+  .tech-card:nth-child(1) { animation-delay: 0.1s; }
+  .tech-card:nth-child(2) { animation-delay: 0.2s; }
+  .tech-card:nth-child(3) { animation-delay: 0.3s; }
+  .tech-card:nth-child(4) { animation-delay: 0.4s; }
+  .tech-card:nth-child(5) { animation-delay: 0.5s; }
+  .tech-card:nth-child(6) { animation-delay: 0.6s; }
+  .tech-card:nth-child(7) { animation-delay: 0.7s; }
+  .tech-card:nth-child(8) { animation-delay: 0.8s; }
+  .tech-card:nth-child(9) { animation-delay: 0.9s; }
+  .tech-card:nth-child(10) { animation-delay: 1.0s; }
+  .tech-card:nth-child(11) { animation-delay: 1.1s; }
+  .tech-card:nth-child(12) { animation-delay: 1.2s; }
+  
+  .tech-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 50px rgba(0, 234, 255, 0.14);
+    border-color: rgba(0, 234, 255, 0.2);
+  }
+
+  .tech-card::before {
+    content:"";
+    position:absolute;
+    inset:-35% auto auto -30%;
+    width:220px;
+    height:220px;
+    background:radial-gradient(circle, rgba(255,255,255,0.18), rgba(255,255,255,0));
+    opacity:0.35;
+    pointer-events:none;
+    filter:blur(12px);
+  }
+
+  .tech-icon {
+    position:relative;
+    border-radius:20px;
+  }
+
+  .tech-icon::after {
+    content:"";
+    position:absolute;
+    inset:5px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,0.35);
+    opacity:0.6;
+    pointer-events:none;
+  }
+
+  .tech-badge {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:6px 12px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.14);
+    background:rgba(255,255,255,0.05);
+  }
+
+  .tech-glow {
+    pointer-events:none;
+  }
+
+  .tech-card:hover h4 {
+    text-shadow:0 8px 20px rgba(0, 234, 255, 0.3);
+  }
+  
+  /* Navigation glassmorphism */
+  .nav-wrapper{
+    pointer-events:none;
+  }
+  .nav-glass{
+    position:relative;
+    padding:14px 22px;
+    border-radius:22px;
+    background:linear-gradient(135deg, rgba(12,18,28,0.78) 0%, rgba(8,12,22,0.62) 45%, rgba(3,5,14,0.32) 100%);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(28px) saturate(160%);
+    box-shadow:0 25px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(0,0,0,0.45);
+    overflow:hidden;
+    pointer-events:auto;
+  }
+  .nav-wrapper nav{
+    pointer-events:auto;
+  }
+  .nav-glass::before{
+    content:"";
+    position:absolute;
+    inset:-130% -80% auto auto;
+    width:240px;
+    height:240px;
+    background:radial-gradient(circle at center, rgba(255,255,255,0.45), rgba(255,255,255,0) 70%);
+    opacity:0.45;
+    transform:rotate(12deg);
+    pointer-events:none;
+  }
+  .nav-glass::after{
+    content:"";
+    position:absolute;
+    inset:auto auto -140% -70%;
+    width:280px;
+    height:280px;
+    background:radial-gradient(circle at center, rgba(0,234,255,0.35), rgba(0,0,0,0) 75%);
+    filter:blur(35px);
+    opacity:0.55;
+    pointer-events:none;
+  }
+  .brand-link{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:6px 12px;
+    border-radius:16px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(0,0,0,0.35);
+    transition:border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .brand-link:hover{
+    border-color:rgba(255,255,255,0.28);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.28), 0 0 22px rgba(0,234,255,0.2);
+  }
+  .nav-link{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px 16px;
+    border-radius:14px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    color:rgba(255,255,255,0.78);
+    text-decoration:none;
+    transition:color 0.3s ease, transform 0.3s ease;
+    overflow:hidden;
+  }
+  .nav-link::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    background:linear-gradient(135deg, rgba(255,255,255,0.25), rgba(0,234,255,0.15));
+    opacity:0;
+    transition:opacity 0.35s ease;
+  }
+  .nav-link::after{
+    content:"";
+    position:absolute;
+    left:20%;
+    right:20%;
+    bottom:6px;
+    height:1px;
+    background:linear-gradient(90deg, rgba(0,234,255,0), rgba(0,234,255,0.85), rgba(0,234,255,0));
+    opacity:0;
+    transition:opacity 0.3s ease;
+  }
+  .nav-link:hover{
+    color:#85f4ff;
+    transform:translateY(-1px);
+  }
+  .nav-link:hover::before{
+    opacity:0.18;
+  }
+  .nav-link:hover::after{
+    opacity:1;
+  }
+
+  .nav-menu-btn{
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.05);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.16), inset 0 -1px 0 rgba(0,0,0,0.35);
+    transition:transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .nav-menu-btn span{
+    display:block;
+    width:20px;
+    height:2px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.85);
+    transition:transform 0.3s ease, opacity 0.3s ease;
+  }
+  .nav-menu-btn:hover{
+    border-color:rgba(255,255,255,0.28);
+    box-shadow:0 0 18px rgba(0,234,255,0.18);
+  }
+  .nav-menu-btn.open span:nth-child(1){
+    transform:translateY(8px) rotate(45deg);
+  }
+  .nav-menu-btn.open span:nth-child(2){
+    opacity:0;
+  }
+  .nav-menu-btn.open span:nth-child(3){
+    transform:translateY(-8px) rotate(-45deg);
+  }
+
+  .mobile-nav{
+    position:absolute;
+    top:calc(100% + 12px);
+    left:50%;
+    transform:translate(-50%, -10px);
+    width:calc(100% - 48px);
+    max-width:380px;
+    border-radius:22px;
+    border:1px solid rgba(255,255,255,0.1);
+    background:rgba(6,14,22,0.95);
+    backdrop-filter:blur(24px) saturate(160%);
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    box-shadow:0 28px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.12);
+  }
+  .mobile-nav.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translate(-50%, 0);
+  }
+  .mobile-nav a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:12px 14px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.06);
+    background:rgba(255,255,255,0.03);
+    color:rgba(255,255,255,0.82);
+    text-decoration:none;
+    font-weight:600;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    font-size:0.78rem;
+    transition:color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  }
+  .mobile-nav a:hover{
+    color:#85f4ff;
+    border-color:rgba(0,234,255,0.3);
+    background:rgba(0,234,255,0.08);
+  }
+
+  @media (max-width: 640px){
+    .nav-glass{
+      padding:12px 16px;
+      border-radius:18px;
+      width:calc(100% - 28px) !important;
+    }
+    section:not(#home){
+      padding:24px 16px;
+      margin:12px auto;
+    }
+  }
+
+  @media (min-width:768px){
+    .mobile-nav{
+      display:none !important;
+    }
+  }
+
+  /* Stats cards */
+  .stat-card {
+    position:relative;
+    overflow:hidden;
+  }
+  .stat-card::before {
+    content:"";
+    position:absolute;
+    inset:-40% -40% auto auto;
+    width:220px;
+    height:220px;
+    background:radial-gradient(circle, rgba(255,255,255,0.14), rgba(255,255,255,0));
+    opacity:0.45;
+    pointer-events:none;
+    transform:rotate(18deg);
+  }
+  .stat-card::after {
+    content:"";
+    position:absolute;
+    inset:auto auto -45% -35%;
+    width:260px;
+    height:260px;
+    background:radial-gradient(circle, rgba(0,234,255,0.2), rgba(0,0,0,0));
+    opacity:0.35;
+    filter:blur(35px);
+    pointer-events:none;
+  }
+  .stat-card .stat-value {
+    text-shadow:0 8px 25px rgba(0,0,0,0.45);
+  }
+
+  /* About tiles */
+  .about-card-full {
+    position:relative;
+    overflow:hidden;
+    transition:transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+    border-radius:24px;
+  }
+  .about-card-full:hover {
+    transform:translateY(-10px);
+    box-shadow:0 24px 60px rgba(0,0,0,0.48), 0 0 48px rgba(0,234,255,0.14);
+    border-color:rgba(0,234,255,0.24);
+  }
+  .about-card-full::before {
+    content:"";
+    position:absolute;
+    inset:-35% auto auto -30%;
+    width:240px;
+    height:240px;
+    background:radial-gradient(circle, rgba(255,255,255,0.16), rgba(255,255,255,0));
+    opacity:0.4;
+    filter:blur(12px);
+    pointer-events:none;
+  }
+  .about-glow {
+    pointer-events:none;
+  }
+  .about-pill {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 14px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.14);
+    background:rgba(255,255,255,0.05);
+    letter-spacing:0.18em;
+    font-size:0.7rem;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.58);
+  }
+  .about-icon-full {
+    position:relative;
+    width:64px;
+    height:64px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg, rgba(0,234,255,1), rgba(0,228,165,1));
+    color:#02161a;
+    box-shadow:0 14px 38px rgba(0,234,255,0.32);
+  }
+  .about-icon-full::after {
+    content:"";
+    position:absolute;
+    inset:6px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.35);
+    opacity:0.6;
+    pointer-events:none;
+  }
+  .about-bullets {
+    list-style:none;
+    margin:20px 0 0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .about-bullet {
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    color:rgba(200,220,230,0.86);
+    font-size:0.95rem;
+    line-height:1.55;
+  }
+  .about-bullet-icon {
+    width:22px;
+    height:22px;
+    border-radius:8px;
+    background:linear-gradient(135deg, rgba(0,234,255,0.9), rgba(0,228,165,0.9));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#02161a;
+    flex-shrink:0;
+    box-shadow:0 6px 16px rgba(0,234,255,0.32);
+  }
+
+  /* Project case studies */
+  .project-card {
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    transition:transform 0.55s ease, box-shadow 0.55s ease, border-color 0.55s ease;
+    border:1px solid rgba(255,255,255,0.05);
+    background:rgba(6,14,22,0.94);
+    backdrop-filter:blur(18px);
+  }
+  .project-card:hover {
+    transform:translateY(-12px);
+    box-shadow:0 24px 72px rgba(0,0,0,0.5), 0 0 48px rgba(0,234,255,0.12);
+    border-color:rgba(0,234,255,0.22);
+  }
+  .project-card::before {
+    content:"";
+    position:absolute;
+    inset:-45% auto auto -30%;
+    width:260px;
+    height:260px;
+    background:radial-gradient(circle, rgba(0,234,255,0.25), rgba(0,0,0,0));
+    opacity:0.35;
+    filter:blur(16px);
+    transition:opacity 0.6s ease;
+    pointer-events:none;
+  }
+  .project-card:hover::before {
+    opacity:0.55;
+  }
+  .project-gloss {
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 80%);
+    transform:translateX(-120%);
+    transition:transform 1s ease;
+    pointer-events:none;
+  }
+  .project-card:hover .project-gloss {
+    transform:translateX(120%);
+  }
+  .project-icon {
+    position:relative;
+    width:60px;
+    height:60px;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg, rgba(0,234,255,1), rgba(0,228,165,1));
+    color:#02161a;
+    box-shadow:0 14px 32px rgba(0,234,255,0.32);
+  }
+  .project-icon::after {
+    content:"";
+    position:absolute;
+    inset:6px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,0.38);
+    opacity:0.6;
+  }
+  .project-tag {
+    display:inline-flex;
+    align-items:center;
+    padding:6px 12px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.05);
+    color:rgba(255,255,255,0.68);
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+  }
+  .project-stat {
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .project-stat span:first-child {
+    font-size:0.7rem;
+    letter-spacing:0.12em;
+    color:rgba(255,255,255,0.55);
+    text-transform:uppercase;
+  }
+  .project-stat span:last-child {
+    font-size:1rem;
+    color:rgba(210,230,235,0.9);
+    font-weight:600;
+  }
+
+  /* Contact section styling */
+  .contact-pill {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 16px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.14);
+    background:rgba(255,255,255,0.05);
+    color:rgba(255,255,255,0.62);
+    letter-spacing:0.2em;
+    font-size:0.7rem;
+    text-transform:uppercase;
+  }
+  .contact-metrics {
+    display:grid;
+    gap:12px;
+    width:100%;
+  }
+  @media (min-width:640px){
+    .contact-metrics {
+      grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+  }
+  .contact-metric {
+    position:relative;
+    border-radius:18px;
+    padding:18px;
+    border:1px solid rgba(255,255,255,0.08);
+    background:rgba(255,255,255,0.03);
+    backdrop-filter:blur(14px);
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .contact-metric span:first-child {
+    font-size:0.7rem;
+    letter-spacing:0.16em;
+    color:rgba(255,255,255,0.55);
+    text-transform:uppercase;
+  }
+  .contact-metric span:last-child {
+    font-size:1.1rem;
+    color:rgba(210,230,235,0.9);
+    font-weight:600;
+  }
+  .contact-card {
+    position:relative;
+    border-radius:26px;
+    border:1px solid rgba(255,255,255,0.08);
+    background:rgba(6,14,22,0.92);
+    backdrop-filter:blur(20px);
+    padding:32px;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+    overflow:hidden;
+    transition:transform 0.55s ease, box-shadow 0.55s ease, border-color 0.55s ease;
+  }
+  .contact-card::before {
+    content:"";
+    position:absolute;
+    inset:-45% auto auto -30%;
+    width:260px;
+    height:260px;
+    background:radial-gradient(circle, rgba(0,234,255,0.26), rgba(0,0,0,0));
+    opacity:0.35;
+    filter:blur(18px);
+    pointer-events:none;
+    transition:opacity 0.6s ease;
+  }
+  .contact-card:hover {
+    transform:translateY(-10px);
+    box-shadow:0 24px 72px rgba(0,0,0,0.52), 0 0 52px rgba(0,234,255,0.14);
+    border-color:rgba(0,234,255,0.24);
+  }
+  .contact-card:hover::before {
+    opacity:0.55;
+  }
+  .contact-icon {
+    width:56px;
+    height:56px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg, rgba(0,234,255,1), rgba(0,228,165,1));
+    color:#02161a;
+    box-shadow:0 14px 36px rgba(0,234,255,0.32);
+    position:relative;
+  }
+  .contact-icon::after {
+    content:"";
+    position:absolute;
+    inset:6px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.35);
+    opacity:0.65;
+  }
+  .contact-list {
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .contact-list li {
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    color:rgba(210,230,235,0.88);
+    font-size:0.95rem;
+    line-height:1.6;
+  }
+  .contact-list li span:first-child {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:4px;
+    width:18px;
+    flex-shrink:0;
+  }
+  .contact-list li span:last-child {
+    display:block;
+  }
+  .contact-form-card {
+    position:relative;
+    border-radius:26px;
+    border:1px solid rgba(255,255,255,0.08);
+    background:rgba(6,14,22,0.94);
+    backdrop-filter:blur(22px);
+    padding:32px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    overflow:hidden;
+    transition:transform 0.55s ease, box-shadow 0.55s ease, border-color 0.55s ease;
+  }
+  .contact-form-card::before {
+    content:"";
+    position:absolute;
+    inset:-40% 0 auto -35%;
+    width:300px;
+    height:300px;
+    background:radial-gradient(circle, rgba(0,214,255,0.22), rgba(0,0,0,0));
+    opacity:0.35;
+    filter:blur(18px);
+    pointer-events:none;
+  }
+  .contact-form-card:hover {
+    border-color:rgba(0,234,255,0.22);
+    box-shadow:0 24px 72px rgba(0,0,0,0.5), 0 0 48px rgba(0,234,255,0.12);
+  }
+  .contact-field {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .contact-label {
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.6);
+  }
+  .contact-input {
+    width:100%;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,0.08);
+    background:rgba(10,20,26,0.6);
+    padding:14px;
+    color:#e7f6ff;
+    font-size:0.95rem;
+    transition:border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .contact-input:focus {
+    border-color:rgba(0,234,255,0.6);
+    box-shadow:0 0 0 3px rgba(0,234,255,0.12);
+    outline:none;
+  }
+  .contact-submit {
+    align-self:flex-start;
+    border:none;
+    border-radius:999px;
+    padding:12px 26px;
+    font-weight:700;
+    background:linear-gradient(135deg, rgba(0,234,255,1), rgba(0,228,165,1));
+    color:#02161a;
+    cursor:pointer;
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .contact-submit:hover {
+    transform:translateY(-2px);
+    box-shadow:0 18px 38px rgba(0,234,255,0.32);
+  }
+
+  /* Footer styling */
+  .footer-pill {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 18px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.14);
+    background:rgba(255,255,255,0.05);
+    letter-spacing:0.22em;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.6);
+  }
+  .footer-grid {
+    display:grid;
+    gap:20px;
+  }
+  @media (min-width:768px){
+    .footer-grid {
+      grid-template-columns:1.1fr 1fr 1fr;
+    }
+  }
+  .footer-card {
+    position:relative;
+    border-radius:28px;
+    border:1px solid rgba(255,255,255,0.08);
+    background:rgba(6,14,22,0.94);
+    backdrop-filter:blur(22px);
+    padding:32px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    overflow:hidden;
+  }
+  .footer-card::before {
+    content:"";
+    position:absolute;
+    inset:-45% auto auto -30%;
+    width:280px;
+    height:280px;
+    background:radial-gradient(circle, rgba(0,234,255,0.22), rgba(0,0,0,0));
+    opacity:0.35;
+    filter:blur(18px);
+    pointer-events:none;
+  }
+  .footer-card h3 {
+    margin:0;
+    font-size:1.1rem;
+    color:#fff;
+  }
+  .footer-heading {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .footer-heading span {
+    font-size:0.76rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.58);
+  }
+  .footer-copy {
+    font-size:0.98rem;
+    color:rgba(205,225,230,0.86);
+    line-height:1.65;
+  }
+  .footer-list {
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-size:0.95rem;
+    color:rgba(210,230,235,0.82);
+  }
+  .footer-list a {
+    color:inherit;
+    text-decoration:none;
+    transition:color 0.3s ease;
+  }
+  .footer-list a:hover {
+    color:#00eaff;
+  }
+  .footer-meta {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    font-size:0.9rem;
+    color:rgba(205,225,230,0.75);
+  }
+  .footer-meta strong {
+    color:#fff;
+  }
+  .footer-bottom {
+    margin-top:28px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    font-size:0.85rem;
+    color:rgba(170,195,205,0.65);
+    text-align:center;
+  }
+  @media (min-width:640px){
+    .footer-bottom {
+      flex-direction:row;
+      justify-content:space-between;
+      text-align:left;
+      align-items:center;
+    }
+  }
+
+  /* Service tiles */
+  .services-grid {
+    position:relative;
+  }
+  .service-card-full {
+    position:relative;
+    overflow:hidden;
+    transition:transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+  }
+  .service-card-full:hover {
+    transform:translateY(-10px);
+    box-shadow:0 22px 60px rgba(0, 0, 0, 0.45), 0 0 45px rgba(0, 234, 255, 0.12);
+    border-color:rgba(0, 234, 255, 0.25);
+  }
+  .service-card-full::before {
+    content:"";
+    position:absolute;
+    inset:-30% auto auto -25%;
+    width:260px;
+    height:260px;
+    background:radial-gradient(circle, rgba(255,255,255,0.16), rgba(255,255,255,0));
+    opacity:0.4;
+    filter:blur(10px);
+    pointer-events:none;
+  }
+  .service-icon-full {
+    position:relative;
+    background:linear-gradient(135deg, rgba(0,234,255,1), rgba(0,228,165,1));
+  }
+  .service-icon-full::after {
+    content:"";
+    position:absolute;
+    inset:6px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,0.35);
+    opacity:0.6;
+    pointer-events:none;
+  }
+  .service-glow {
+    pointer-events:none;
+  }
+  .tag {
+    padding:6px 12px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.14);
+    background:rgba(255,255,255,0.04);
+    letter-spacing:0.18em;
+  }
+  /* Card stacking scroll animation - optimized */
+  section {
+    position: relative;
+    transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.6s ease;
+    border-radius: 24px;
+    margin: 20px auto;
+    max-width: calc(100vw - 40px);
+  }
+  
+  section:not(#home) {
+    opacity: 0;
+    transform: translateY(80px) scale(0.98);
+    background: rgba(7, 18, 23, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px 20px;
+  }
+  
+  @media (min-width: 768px) {
+    section:not(#home) {
+      max-width: 1200px;
+      padding: 60px 40px;
+    }
+  }
+  
+  section.revealed {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1);
+  }
+  
+  section.active {
+    z-index: 100;
+    opacity: 1 !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 234, 255, 0.1);
+    border-color: rgba(0, 234, 255, 0.2);
+  }
+  
+  section.prev {
+    z-index: 99;
+    transform: translateY(-30px) scale(0.98);
+    opacity: 0.85 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+  
+  section.next {
+    z-index: 98;
+    opacity: 0;
+  }
+  
+  section.next.revealed,
+  section.revealed.next {
+    opacity: 1 !important;
+  }
+  
+  /* Ensure home section doesn't have card styling */
+  #home {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    z-index: 1 !important;
+  }
+  
+  /* Ensure main container allows stacking */
+  main {
+    position: relative;
+    overflow-x: hidden;
+  }
+  </style>
+</head>
+
+<body class="h-full m-0 p-0 overflow-x-hidden font-sans bg-gradient-to-br from-[#050809] to-[#071217] text-[#eafaf3] antialiased smooth-scroll relative">
+  <!-- NAV -->
+  <header class="nav-wrapper fixed left-0 right-0 top-4 flex justify-center z-[1400]">
+    <div class="nav-glass w-[calc(100%-96px)] max-w-[1200px] flex items-center justify-between p-3" role="navigation" aria-label="Primary">
+      <a class="brand-link flex items-center gap-3" href="#home" onclick="navTo('#home')"><img src="logo.png" alt="OpsCore Labs" class="w-11 h-11 rounded-lg object-cover"></a>
+      <nav class="hidden md:flex gap-[18px] items-center" aria-hidden="false">
+        <a href="#home" onclick="navTo('#home')" class="nav-link">Home</a>
+        <a href="#stats" onclick="navTo('#stats')" class="nav-link">Stats</a>
+        <a href="#services" onclick="navTo('#services')" class="nav-link">Services</a>
+        <a href="#about" onclick="navTo('#about')" class="nav-link">About</a>
+        <a href="#tech" onclick="navTo('#tech')" class="nav-link">Technologies</a>
+        <a href="#projects" onclick="navTo('#projects')" class="nav-link">Projects</a>
+        <a href="#contact" onclick="navTo('#contact')" class="nav-link">Contact</a>
+      </nav>
+      <button id="menuToggle" class="nav-menu-btn md:hidden" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="mobileNav" class="mobile-nav md:hidden" aria-hidden="true">
+        <a href="#home" onclick="navTo('#home')">Home</a>
+        <a href="#stats" onclick="navTo('#stats')">Stats</a>
+        <a href="#services" onclick="navTo('#services')">Services</a>
+        <a href="#about" onclick="navTo('#about')">About</a>
+        <a href="#tech" onclick="navTo('#tech')">Technologies</a>
+        <a href="#projects" onclick="navTo('#projects')">Projects</a>
+        <a href="#contact" onclick="navTo('#contact')">Contact</a>
+    </div>
+  </header>
+
+  <main class="relative pt-28" id="main" style="min-height: 100vh;">
+
+    <!-- HERO -->
+    <section id="home" class="relative overflow-hidden w-screen h-screen block p-0" aria-label="Hero">
+      <!-- Background Video -->
+      <video id="bg-video" class="absolute top-0 left-0 w-screen h-screen object-cover z-0 opacity-50" autoplay muted loop playsinline>
+        <source src="background.mp4" type="video/mp4">
+        <source src="background.mov" type="video/quicktime">
+      </video>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-center w-full max-w-[1200px] mx-auto py-[72px] px-6 relative z-10">
+        <div class="pr-6 max-w-[68ch] relative z-[1]">
+          <h1 class="font-title font-extrabold text-[clamp(2.2rem,5.5vw,3.8rem)] leading-[0.98] mb-4 bg-gradient-to-r from-white to-[#bfffe6] bg-clip-text text-transparent m-0">OpsCore Labs</h1>
+          <div class="text-[rgba(230,250,240,0.9)] text-[1.05rem] mt-4">Innovating. Building. Scaling.</div>
+          <p class="mt-6 text-[rgba(220,240,230,0.88)] text-base leading-relaxed m-0">We craft production-ready blockchain, AI, and full-stack solutions — engineered for scale, security, and real-world results.</p>
+          <div class="mt-8 flex flex-wrap gap-4 text-[0.95rem]">
+            <a href="#services" onclick="navTo('#services')" class="px-6 py-3 rounded-full bg-[rgba(0,234,255,0.12)] border border-[rgba(0,234,255,0.35)] text-white hover:bg-[rgba(0,234,255,0.22)] transition" aria-label="Explore our services">Explore Services</a>
+            <a href="#contact" onclick="navTo('#contact')" class="px-6 py-3 rounded-full border border-[rgba(255,255,255,0.2)] text-[rgba(220,240,230,0.88)] hover:text-white hover:border-[rgba(0,234,255,0.45)] transition" aria-label="Contact OpsCore Labs">Talk to an Architect</a>
+          </div>
+      </div>
+
+        <!-- 3D coin preserved for future use
+        <div class="coin-wrap w-[clamp(220px,32vw,420px)] h-[clamp(220px,32vw,420px)] flex items-center justify-center relative z-[1] mx-auto lg:mx-0" style="perspective:1400px" aria-hidden="false">
+          <div class="coin relative w-full h-full rounded-full" id="coin" style="transform-style:preserve-3d">
+            <div class="coin-face absolute inset-0 rounded-full bg-[#0b1211] overflow-hidden shadow-[inset_0_6px_18px_rgba(0,0,0,0.45)] opacity-100 z-[2]" style="transform:translateZ(12px)" aria-hidden="true">
+              <div class="coin-logo-wrap absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[64%] h-[64%] z-[6] pointer-events-none">
+                <img class="coin-logo w-full h-full object-contain brightness-105 mix-blend-normal" src="logo.png" alt="OpsCore Labs logo">
+              </div>
+            </div>
+            <div class="coin-edge absolute inset-0 hidden" id="coin-edge" style="transform-style:preserve-3d;display:none" aria-hidden="true"></div>
+            <div class="coin-face absolute inset-0 rounded-full bg-[#0b1211] overflow-hidden shadow-[inset_0_6px_18px_rgba(0,0,0,0.45)] opacity-100 z-[1]" style="transform:rotateY(180deg) translateZ(12px)" aria-hidden="true">
+              <div class="coin-logo-wrap absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[64%] h-[64%] z-[6] pointer-events-none">
+                <img class="coin-logo w-full h-full object-contain brightness-105 mix-blend-normal" src="logo.png" alt="OpsCore Labs logo">
+              </div>
+            </div>
+            <div class="absolute inset-[6%] rounded-full pointer-events-none" style="background:radial-gradient(circle at 28% 18%, rgba(255,255,255,0.65), rgba(255,255,255,0.18) 22%, rgba(77,162,255,0.22) 32%, rgba(250,169,120,0.18) 40%, rgba(0,0,0,0.65) 68%, rgba(0,0,0,0) 92%);opacity:0.35;mix-blend-mode:screen"></div>
+          </div>
+        </div>
+        -->
+      </div>
+    </section>
+
+    <!-- STATS (separate page/section) -->
+    <section id="stats" class="min-h-screen flex flex-col justify-center relative" aria-label="Stats">
+      <div class="flex flex-col items-center text-center gap-4 mb-10 w-full max-w-[1200px] mx-auto px-6">
+        <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] text-[rgba(255,255,255,0.62)] uppercase tracking-[0.35em] text-[0.75rem]">Our Achievements</div>
+        <h2 class="m-0 text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold text-white">Impact metrics from real-world delivery</h2>
+        <p class="text-[rgba(190,210,220,0.82)] text-[1.05rem] m-0 max-w-3xl leading-relaxed">Every number is tied to a shipped project, infrastructure launch, or strategic partnership. These metrics update as we deploy and learn.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1200px] mx-auto px-6" aria-hidden="false">
+        <div class="stat-card stat group relative overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.06)] bg-[rgba(6,14,22,0.92)] p-8 flex flex-col items-center text-center" data-target="999">
+          <div class="stat-glow absolute -inset-20 bg-[radial-gradient(circle_at_center,rgba(0,234,255,0.35),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="relative z-[2]">
+            <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-[rgba(255,255,255,0.08)] text-[rgba(255,255,255,0.62)] text-xs uppercase tracking-[0.2em]">Ship velocity</div>
+            <div class="stat-value mt-6 font-semibold text-[clamp(2.8rem,5vw,3.4rem)] text-white value">0</div>
+            <div class="mt-2 text-[rgba(255,255,255,0.78)] text-[1rem] font-medium label">Projects delivered</div>
+            <p class="mt-4 text-[rgba(190,210,220,0.7)] text-[0.95rem] leading-relaxed">Full-stack builds, blockchain systems, and production ML releases shipped across Web3, fintech, and enterprise.</p>
+          </div>
+        </div>
+
+        <div class="stat-card stat group relative overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.06)] bg-[rgba(6,14,22,0.92)] p-8 flex flex-col items-center text-center" data-target="999">
+          <div class="stat-glow absolute -inset-20 bg-[radial-gradient(circle_at_center,rgba(124,190,255,0.35),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="relative z-[2]">
+            <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-[rgba(255,255,255,0.08)] text-[rgba(255,255,255,0.62)] text-xs uppercase tracking-[0.2em]">Stack coverage</div>
+            <div class="stat-value mt-6 font-semibold text-[clamp(2.8rem,5vw,3.4rem)] text-white value">0</div>
+            <div class="mt-2 text-[rgba(255,255,255,0.78)] text-[1rem] font-medium label">Technologies mastered</div>
+            <p class="mt-4 text-[rgba(190,210,220,0.7)] text-[0.95rem] leading-relaxed">From Solana to Kubernetes, our teams ship across cloud, AI, mobile, and DeFi ecosystems with the same quality bar.</p>
+          </div>
+        </div>
+
+        <div class="stat-card stat group relative overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.06)] bg-[rgba(6,14,22,0.92)] p-8 flex flex-col items-center text-center" data-target="100" data-suffix="%">
+          <div class="stat-glow absolute -inset-20 bg-[radial-gradient(circle_at_center,rgba(0,255,196,0.35),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="relative z-[2]">
+            <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-[rgba(255,255,255,0.08)] text-[rgba(255,255,255,0.62)] text-xs uppercase tracking-[0.2em]">Client trust</div>
+            <div class="stat-value mt-6 font-semibold text-[clamp(2.8rem,5vw,3.4rem)] text-white value">0</div>
+            <div class="mt-2 text-[rgba(255,255,255,0.78)] text-[1rem] font-medium label">Client satisfaction</div>
+            <p class="mt-4 text-[rgba(190,210,220,0.7)] text-[0.95rem] leading-relaxed">Measured by post-engagement NPS, uptime guarantees, and partner retention across multi-year programs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="min-h-screen flex flex-col justify-center relative" aria-label="Services">
+      <div class="flex flex-col items-center text-center gap-4 mb-10 w-full max-w-[1200px] mx-auto px-6">
+        <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] text-[rgba(255,255,255,0.62)] uppercase tracking-[0.35em] text-[0.75rem]">What we do</div>
+        <h2 class="m-0 text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold text-white">Full-stack squads that move from idea to shipped product</h2>
+        <p class="text-[rgba(190,210,220,0.82)] text-[1.05rem] m-0 max-w-3xl leading-relaxed">We blend product strategy, design, development, infrastructure, and AI expertise so every engagement delivers. Tap into OpsCore teams where you need them most.</p>
+      </div>
+
+      <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1200px] mx-auto px-6" aria-hidden="false">
+        <!-- Frontend -->
+        <div class="service-card-full group relative overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.06)] bg-[rgba(6,14,22,0.92)] p-8">
+          <div class="service-glow absolute -inset-20 bg-[radial-gradient(circle_at_center,rgba(0,234,255,0.25),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="relative z-[2] flex items-start gap-5">
+            <div class="service-icon-full w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#00eaff] to-[#00e4a5] text-[#02161a] shadow-[0_12px_35px_rgba(0,234,255,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-9 h-9">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M3 9h18M9 3v18" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="m-0 text-white text-[1.4rem] font-semibold">Frontend engineering</h3>
+              <p class="mt-2 text-[rgba(190,210,220,0.75)] leading-relaxed text-[0.98rem]">Next.js, React, WebGL, and performance-first builds that ship with design systems, animation polish, and accessibility baked in.</p>
+              <div class="mt-4 flex flex-wrap gap-2 text-[0.82rem] uppercase tracking-[0.18em] text-[rgba(255,255,255,0.55)]">
+                <span class="tag">Design systems</span>
+                <span class="tag">Core web vitals</span>
+                <span class="tag">R3F / WebGL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="service-card-full group relative overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.06)] bg-[rgba(6,14,22,0.92)] p-8">
+          <div class="service-glow absolute -inset-20 bg-[radial-gradient(circle_at_center,rgba(90,192,255,0.25),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="relative z-[2] flex items-start gap-5">
+            <div class="service-icon-full w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#6ad6ff] to-[#00eaff] text-[#02161a] shadow-[0_12px_35px_rgba(90,192,255,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-9 h-9">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="m-0 text-white text-[1.4rem] font-semibold">Backend & API</h3>
+              <p class="mt-2 text-[rgba(190,210,220,0.75)] leading-relaxed text-[0.98rem]">Event-driven services, GraphQL, serverless, and hardened APIs with observability, zero-downtime deploys, and scale in mind.</p>
+              <div class="mt-4 flex flex-wrap gap-2 text-[0.82rem] uppercase tracking-[0.18em] text-[rgba(255,255,255,0.55)]">
+                <span class="tag">GraphQL</span>
+                <span class="tag">Microservices</span>
+                <span class="tag">Security reviews</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DevOps -->
+        <div class="service-card-full group relative overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.06)] bg-[rgba(6,14,22,0.92)] p-8">
+          <div class="service-glow absolute -inset-20 bg-[radial-gradient(circle_at_center,rgba(166,232,255,0.25),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="relative z-[2] flex items-start gap-5">
+            <div class="service-icon-full w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#72f6ff] to-[#00e4a5] text-[#02161a] shadow-[0_12px_35px_rgba(166,232,255,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-9 h-9">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="m-0 text-white text-[1.4rem] font-semibold">DevOps & cloud</h3>
+              <p class="mt-2 text-[rgba(190,210,220,0.75)] leading-relaxed text-[0.98rem]">Terraform, Kubernetes, CI/CD, and cost-aware cloud foundations with deep observability, SRE playbooks, and compliance baked in. We align delivery with the <a href="https://aws.amazon.com/architecture/well-architected/" target="_blank" rel="noopener noreferrer" class="text-[#7fffe6] underline decoration-dotted decoration-1 hover:text-white">AWS Well-Architected Framework</a> when we harden critical workloads.</p>
+              <div class="mt-4 flex flex-wrap gap-2 text-[0.82rem] uppercase tracking-[0.18em] text-[rgba(255,255,255,0.55)]">
+                <span class="tag">Terraform</span>
+                <span class="tag">Kubernetes</span>
+                <span class="tag">SRE / Observability</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blockchain -->
+        <div class="service-card-full group relative overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.06)] bg-[rgba(6,14,22,0.92)] p-8">
+          <div class="service-glow absolute -inset-20 bg-[radial-gradient(circle_at_center,rgba(0,214,255,0.28),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="relative z-[2] flex items-start gap-5">
+            <div class="service-icon-full w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#00f0ff] to-[#00a0ff] text-[#02161a] shadow-[0_12px_35px_rgba(0,214,255,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-9 h-9">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 2v6m0 8v6M2 12h6m8 0h6" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="m-0 text-white text-[1.4rem] font-semibold">Blockchain & Web3</h3>
+              <p class="mt-2 text-[rgba(190,210,220,0.75)] leading-relaxed text-[0.98rem]">Smart contracts, DeFi protocols, zk stacks, and tokenized systems engineered for security reviews and mainnet resilience.</p>
+              <div class="mt-4 flex flex-wrap gap-2 text-[0.82rem] uppercase tracking-[0.18em] text-[rgba(255,255,255,0.55)]">
+                <span class="tag">Smart contracts</span>
+                <span class="tag">Audits</span>
+                <span class="tag">DeFi infra</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI & ML -->
+        <div class="service-card-full group relative overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.06)] bg-[rgba(6,14,22,0.92)] p-8">
+          <div class="service-glow absolute -inset-20 bg-[radial-gradient(circle_at_center,rgba(103,255,217,0.28),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="relative z-[2] flex items-start gap-5">
+            <div class="service-icon-full w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#65ffd9] to-[#00f2ff] text-[#02161a] shadow-[0_12px_35px_rgba(103,255,217,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-9 h-9">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="2" fill="currentColor"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="m-0 text-white text-[1.4rem] font-semibold">Applied AI & ML</h3>
+              <p class="mt-2 text-[rgba(190,210,220,0.75)] leading-relaxed text-[0.98rem]">Production ML, LLM integrations, and ML Ops pipelines with human-in-the-loop tooling, evaluation harnesses, and guardrails.</p>
+              <div class="mt-4 flex flex-wrap gap-2 text-[0.82rem] uppercase tracking-[0.18em] text-[rgba(255,255,255,0.55)]">
+                <span class="tag">LLMs</span>
+                <span class="tag">Vision</span>
+                <span class="tag">MLOps</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile -->
+        <div class="service-card-full group relative overflow-hidden rounded-[24px] border border-[rgba(255,255,255,0.06)] bg-[rgba(6,14,22,0.92)] p-8">
+          <div class="service-glow absolute -inset-20 bg-[radial-gradient(circle_at_center,rgba(0,233,255,0.22),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="relative z-[2] flex items-start gap-5">
+            <div class="service-icon-full w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#00eaff] to-[#67fffb] text-[#02161a] shadow-[0_12px_35px_rgba(0,233,255,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-9 h-9">
+                <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="m-0 text-white text-[1.4rem] font-semibold">Mobile & cross-platform</h3>
+              <p class="mt-2 text-[rgba(190,210,220,0.75)] leading-relaxed text-[0.98rem]">Native and React Native delivery with offline-first sync, performance budgets, and post-launch analytics loops baked in.</p>
+              <div class="mt-4 flex flex-wrap gap-2 text-[0.82rem] uppercase tracking-[0.18em] text-[rgba(255,255,255,0.55)]">
+                <span class="tag">React Native</span>
+                <span class="tag">Native iOS / Android</span>
+                <span class="tag">Growth ops</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGIES -->
+    <section id="tech" class="min-h-screen flex flex-col justify-center relative" aria-label="Technologies">
+      <div class="flex flex-col items-center text-center gap-4 mb-10 w-full max-w-[1200px] mx-auto px-6">
+        <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] text-[rgba(255,255,255,0.62)] uppercase tracking-[0.35em] text-[0.75rem]">Tech stack</div>
+        <h2 class="m-0 text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold text-white">Tools and platforms we use to build modern systems.</h2>
+        <p class="text-[rgba(190,210,220,0.82)] text-[1.05rem] m-0 max-w-3xl leading-relaxed">From low-level protocols to managed services, we bring the right mix of modern frameworks, infrastructure, and AI tooling to each engagement.</p>
+      </div>
+
+      <div class="tech-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-[1200px] mx-auto px-6" aria-hidden="false">
+        <!-- React / Next -->
+        <div class="tech-card group relative overflow-hidden rounded-[22px] border border-[rgba(255,255,255,0.05)] bg-[rgba(6,14,22,0.9)] p-6 flex flex-col items-center text-center">
+          <div class="tech-glow absolute -inset-24 bg-[radial-gradient(circle_at_center,rgba(0,234,255,0.25),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(0,234,255,0.08)] to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000"></div>
+          <div class="relative z-[2] flex flex-col items-center gap-3">
+            <span class="tech-badge text-[0.7rem] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.55)]">Frontend</span>
+            <div class="tech-icon w-14 h-14 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#00eaff] to-[#00e4a5] text-[#02161a] shadow-[0_12px_32px_rgba(0,234,255,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M3 9h18M9 3v18" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h4 class="text-white font-semibold text-sm m-0 group-hover:text-[#00eaff] transition-colors duration-300">React / Next</h4>
+          </div>
+        </div>
+
+        <!-- Node / Express -->
+        <div class="tech-card group relative overflow-hidden rounded-[22px] border border-[rgba(255,255,255,0.05)] bg-[rgba(6,14,22,0.9)] p-6 flex flex-col items-center text-center">
+          <div class="tech-glow absolute -inset-24 bg-[radial-gradient(circle_at_center,rgba(102,205,255,0.25),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(90,192,255,0.08)] to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000"></div>
+          <div class="relative z-[2] flex flex-col items-center gap-3">
+            <span class="tech-badge text-[0.7rem] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.55)]">APIs</span>
+            <div class="tech-icon w-14 h-14 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#6ad6ff] to-[#00eaff] text-[#02161a] shadow-[0_12px_32px_rgba(102,205,255,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h4 class="text-white font-semibold text-sm m-0 group-hover:text-[#6ad6ff] transition-colors duration-300">Node / Express</h4>
+          </div>
+        </div>
+
+        <!-- Kubernetes -->
+        <div class="tech-card group relative overflow-hidden rounded-[22px] border border-[rgba(255,255,255,0.05)] bg-[rgba(6,14,22,0.9)] p-6 flex flex-col items-center text-center">
+          <div class="tech-glow absolute -inset-24 bg-[radial-gradient(circle_at_center,rgba(90,240,255,0.25),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(90,240,255,0.08)] to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000"></div>
+          <div class="relative z-[2] flex flex-col items-center gap-3">
+            <span class="tech-badge text-[0.7rem] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.55)]">Orchestration</span>
+            <div class="tech-icon w-14 h-14 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#58f0ff] to-[#00d1ff] text-[#02161a] shadow-[0_12px_32px_rgba(90,240,255,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+                <rect x="3" y="3" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2"/>
+                <rect x="13" y="3" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2"/>
+                <rect x="3" y="13" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2"/>
+                <rect x="13" y="13" width="8" height="8" rx="1" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h4 class="text-white font-semibold text-sm m-0 group-hover:text-[#58f0ff] transition-colors duration-300">Kubernetes</h4>
+          </div>
+        </div>
+
+        <!-- AWS / GCP -->
+        <div class="tech-card group relative overflow-hidden rounded-[22px] border border-[rgba(255,255,255,0.05)] bg-[rgba(6,14,22,0.9)] p-6 flex flex-col items-center text-center">
+          <div class="tech-glow absolute -inset-24 bg-[radial-gradient(circle_at_center,rgba(0,214,255,0.25),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(0,214,255,0.08)] to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000"></div>
+          <div class="relative z-[2] flex flex-col items-center gap-3">
+            <span class="tech-badge text-[0.7rem] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.55)]">Cloud</span>
+            <div class="tech-icon w-14 h-14 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#00f0ff] to-[#00a0ff] text-[#02161a] shadow-[0_12px_32px_rgba(0,214,255,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="2" fill="currentColor"/>
+              </svg>
+            </div>
+            <h4 class="text-white font-semibold text-sm m-0 group-hover:text-[#00f0ff] transition-colors duration-300">AWS / GCP</h4>
+          </div>
+        </div>
+
+        <!-- Solidity / EVM -->
+        <div class="tech-card group relative overflow-hidden rounded-[22px] border border-[rgba(255,255,255,0.05)] bg-[rgba(6,14,22,0.9)] p-6 flex flex-col items-center text-center">
+          <div class="tech-glow absolute -inset-24 bg-[radial-gradient(circle_at_center,rgba(0,255,204,0.28),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(0,255,204,0.08)] to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000"></div>
+          <div class="relative z-[2] flex flex-col items-center gap-3">
+            <span class="tech-badge text-[0.7rem] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.55)]">Web3</span>
+            <div class="tech-icon w-14 h-14 flex items-center justify-center bg-gradient-to-br from-[#00ffc6] to-[#00e6ff] text-[#02161a] shadow-[0_12px_32px_rgba(0,255,204,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 2v6m0 8v6M2 12h6m8 0h6" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="2" fill="currentColor"/>
+              </svg>
+            </div>
+            <h4 class="text-white font-semibold text-sm m-0 group-hover:text-[#00ffc6] transition-colors duration-300">Solidity / EVM</h4>
+          </div>
+        </div>
+
+        <!-- TensorFlow / PyTorch -->
+        <div class="tech-card group relative overflow-hidden rounded-[22px] border border-[rgba(255,255,255,0.05)] bg-[rgba(6,14,22,0.9)] p-6 flex flex-col items-center text-center">
+          <div class="tech-glow absolute -inset-24 bg-[radial-gradient(circle_at_center,rgba(255,140,180,0.28),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(255,140,180,0.08)] to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000"></div>
+          <div class="relative z-[2] flex flex-col items-center gap-3">
+            <span class="tech-badge text-[0.7rem] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.55)]">AI</span>
+            <div class="tech-icon w-14 h-14 flex items-center justify-center bg-gradient-to-br from-[#ffb36c] to-[#ff6fd8] text-[#240910] shadow-[0_12px_32px_rgba(255,140,180,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h4 class="text-white font-semibold text-sm m-0 group-hover:text-[#ff9bc0] transition-colors duration-300">TensorFlow / PyTorch</h4>
+          </div>
+        </div>
+
+        <!-- Python -->
+        <div class="tech-card group relative overflow-hidden rounded-[22px] border border-[rgba(255,255,255,0.05)] bg-[rgba(6,14,22,0.9)] p-6 flex flex-col items-center text-center">
+          <div class="tech-glow absolute -inset-24 bg-[radial-gradient(circle_at_center,rgba(116,197,255,0.28),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(116,197,255,0.08)] to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000"></div>
+          <div class="relative z-[2] flex flex-col items-center gap-3">
+            <span class="tech-badge text-[0.7rem] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.55)]">Language</span>
+            <div class="tech-icon w-14 h-14 flex items-center justify-center bg-gradient-to-br from-[#74c5ff] to-[#3ad7ff] text-[#02161a] shadow-[0_12px_32px_rgba(116,197,255,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+                <path d="M9 4h6a3 3 0 0 1 3 3v2H9a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M15 20h-6a3 3 0 0 1-3-3v-2h9a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h4 class="text-white font-semibold text-sm m-0 group-hover:text-[#74c5ff] transition-colors duration-300">Python</h4>
+          </div>
+        </div>
+
+        <!-- TypeScript -->
+        <div class="tech-card group relative overflow-hidden rounded-[22px] border border-[rgba(255,255,255,0.05)] bg-[rgba(6,14,22,0.9)] p-6 flex flex-col items-center text-center">
+          <div class="tech-glow absolute -inset-24 bg-[radial-gradient(circle_at_center,rgba(120,220,255,0.28),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(120,220,255,0.08)] to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000"></div>
+          <div class="relative z-[2] flex flex-col items-center gap-3">
+            <span class="tech-badge text-[0.7rem] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.55)]">Language</span>
+            <div class="tech-icon w-14 h-14 flex items-center justify-center bg-gradient-to-br from-[#7cdcff] to-[#00bfff] text-[#02161a] shadow-[0_12px_32px_rgba(120,220,255,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M9 12h6M12 9v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h4 class="text-white font-semibold text-sm m-0 group-hover:text-[#7cdcff] transition-colors duration-300">TypeScript</h4>
+          </div>
+        </div>
+
+        <!-- Docker -->
+        <div class="tech-card group relative overflow-hidden rounded-[22px] border border-[rgba(255,255,255,0.05)] bg-[rgba(6,14,22,0.9)] p-6 flex flex-col items-center text-center">
+          <div class="tech-glow absolute -inset-24 bg-[radial-gradient(circle_at_center,rgba(0,234,255,0.28),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(0,234,255,0.08)] to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000"></div>
+          <div class="relative z-[2] flex flex-col items-center gap-3">
+            <span class="tech-badge text-[0.7rem] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.55)]">Containers</span>
+            <div class="tech-icon w-14 h-14 flex items-center justify-center bg-gradient-to-br from-[#00eaff] to-[#37ffd9] text-[#02161a] shadow-[0_12px_32px_rgba(0,234,255,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+                <path d="M4 14h16v2a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 14v-4h4v4M12 10h4v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h4 class="text-white font-semibold text-sm m-0 group-hover:text-[#37ffd9] transition-colors duration-300">Docker</h4>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="tech-card group relative overflow-hidden rounded-[22px] border border-[rgba(255,255,255,0.05)] bg-[rgba(6,14,22,0.9)] p-6 flex flex-col items-center text-center">
+          <div class="tech-glow absolute -inset-24 bg-[radial-gradient(circle_at_center,rgba(0,204,255,0.28),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(0,204,255,0.08)] to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000"></div>
+          <div class="relative z-[2] flex flex-col items-center gap-3">
+            <span class="tech-badge text-[0.7rem] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.55)]">Data</span>
+            <div class="tech-icon w-14 h-14 flex items-center justify-center bg-gradient-to-br from-[#00ccff] to-[#0099ff] text-[#02161a] shadow-[0_12px_32px_rgba(0,204,255,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+                <ellipse cx="12" cy="5" rx="8" ry="3" stroke="currentColor" stroke-width="2"/>
+                <path d="M4 5v6c0 1.657 3.582 3 8 3s8-1.343 8-3V5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 11v6c0 1.657 3.582 3 8 3s8-1.343 8-3v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h4 class="text-white font-semibold text-sm m-0 group-hover:text-[#00ccff] transition-colors duration-300">Databases</h4>
+          </div>
+        </div>
+
+        <!-- GraphQL -->
+        <div class="tech-card group relative overflow-hidden rounded-[22px] border border-[rgba(255,255,255,0.05)] bg-[rgba(6,14,22,0.9)] p-6 flex flex-col items-center text-center">
+          <div class="tech-glow absolute -inset-24 bg-[radial-gradient(circle_at_center,rgba(255,103,196,0.28),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(255,103,196,0.08)] to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000"></div>
+          <div class="relative z-[2] flex flex-col items-center gap-3">
+            <span class="tech-badge text-[0.7rem] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.55)]">APIs</span>
+            <div class="tech-icon w-14 h-14 flex items-center justify-center bg-gradient-to-br from-[#ff67c4] to-[#8f5eff] text-[#220831] shadow-[0_12px_32px_rgba(255,103,196,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+                <path d="M12 2l9.526 5.5v11L12 24l-9.526-5.5v-11L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M12 2v11.5M2.474 7.5l9.526 5.5 9.526-5.5M12 24v-11.5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h4 class="text-white font-semibold text-sm m-0 group-hover:text-[#ff8ed8] transition-colors duration-300">GraphQL</h4>
+          </div>
+        </div>
+
+        <!-- Terraform -->
+        <div class="tech-card group relative overflow-hidden rounded-[22px] border border-[rgba(255,255,255,0.05)] bg-[rgba(6,14,22,0.9)] p-6 flex flex-col items-center text-center">
+          <div class="tech-glow absolute -inset-24 bg-[radial-gradient(circle_at_center,rgba(90,150,255,0.28),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(90,150,255,0.08)] to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-1000"></div>
+          <div class="relative z-[2] flex flex-col items-center gap-3">
+            <span class="tech-badge text-[0.7rem] tracking-[0.22em] uppercase text-[rgba(255,255,255,0.55)]">Infra as code</span>
+            <div class="tech-icon w-14 h-14 flex items-center justify-center bg-gradient-to-br from-[#5a96ff] to-[#3f6dff] text-[#0b1026] shadow-[0_12px_32px_rgba(90,150,255,0.35)]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+                <path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="2"/>
+                <path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h4 class="text-white font-semibold text-sm m-0 group-hover:text-[#5a96ff] transition-colors duration-300">Terraform</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="min-h-screen flex flex-col justify-center relative" aria-label="About">
+      <div class="flex flex-col items-center text-center gap-4 mb-10 w-full max-w-[1200px] mx-auto px-6">
+        <span class="about-pill">Product Ops DNA</span>
+        <h2 class="m-0">About OpsCore Labs</h2>
+        <p class="text-[rgba(210,230,225,0.86)] text-[1rem] m-0 max-w-3xl leading-relaxed">
+          We operate as a high-trust strike team shipping production-grade software. Designers, protocol engineers, platform leads, and ML specialists work as one unit—hardening systems, tuning performance, and keeping delivery brutally transparent.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl">
+          <div class="flex flex-col items-center gap-2 rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.03)] px-6 py-4 backdrop-blur-[12px]">
+            <span class="text-[rgba(255,255,255,0.68)] text-xs tracking-[0.2em] uppercase">Launch Velocity</span>
+            <span class="text-white text-2xl font-semibold">6-week</span>
+            <span class="text-[rgba(200,220,235,0.75)] text-sm">average MVP window</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.03)] px-6 py-4 backdrop-blur-[12px]">
+            <span class="text-[rgba(255,255,255,0.68)] text-xs tracking-[0.2em] uppercase">Reliability</span>
+            <span class="text-white text-2xl font-semibold">99.5%</span>
+            <span class="text-[rgba(200,220,235,0.75)] text-sm">runtime SLA target</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.03)] px-6 py-4 backdrop-blur-[12px]">
+            <span class="text-[rgba(255,255,255,0.68)] text-xs tracking-[0.2em] uppercase">Engagement</span>
+            <span class="text-white text-2xl font-semibold">24/7</span>
+            <span class="text-[rgba(200,220,235,0.75)] text-sm">ops & incident cover</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1200px] mx-auto px-6">
+        <!-- Mission -->
+        <div class="about-card-full group relative flex flex-col gap-5 p-7 rounded-[24px] border border-[rgba(255,255,255,0.06)] bg-[rgba(6,14,22,0.9)] backdrop-blur-[18px] cursor-pointer">
+          <div class="about-glow absolute -inset-24 bg-[radial-gradient(circle_at_top,rgba(0,234,255,0.22),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-[650ms]"></div>
+          <div class="relative z-[2] flex items-center gap-4">
+            <div class="about-icon-full">
+              <svg viewBox="0 0 24 24" fill="none" class="w-10 h-10">
+                <path d="M12 2L3 7l9 5 9-5-9-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 12l9 5 9-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 17l9 5 9-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-white font-semibold text-xl m-0">Mission</h3>
+              <p class="text-[rgba(210,230,225,0.86)] text-[0.98rem] m-0">Ship resilient, enterprise-grade software that handles scale, regulators, and token rails without drama.</p>
+            </div>
+          </div>
+          <ul class="about-bullets">
+            <li class="about-bullet">
+              <span class="about-bullet-icon"></span>
+              <span>Security baselines baked in from day one—threat models, pen-test readiness, auditable infra.</span>
+            </li>
+            <li class="about-bullet">
+              <span class="about-bullet-icon"></span>
+              <span>Hybrid teams that straddle on-chain, data, and experience layers to keep delivery coherent.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Approach -->
+        <div class="about-card-full group relative flex flex-col gap-5 p-7 rounded-[24px] border border-[rgba(255,255,255,0.06)] bg-[rgba(6,14,22,0.9)] backdrop-blur-[18px] cursor-pointer">
+          <div class="about-glow absolute -inset-24 bg-[radial-gradient(circle_at_top,rgba(0,228,165,0.22),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-[650ms]"></div>
+          <div class="relative z-[2] flex items-center gap-4">
+            <div class="about-icon-full">
+              <svg viewBox="0 0 24 24" fill="none" class="w-10 h-10">
+                <circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-white font-semibold text-xl m-0">Approach</h3>
+              <p class="text-[rgba(210,230,225,0.86)] text-[0.98rem] m-0">Operate like product squads: co-creation workshops, atomic sprints, ops reviews, and ruthless retros.</p>
+            </div>
+          </div>
+          <ul class="about-bullets">
+            <li class="about-bullet">
+              <span class="about-bullet-icon"></span>
+              <span>Weekly release trains with automated QA, synthetic monitoring, and observability dashboards.</span>
+            </li>
+            <li class="about-bullet">
+              <span class="about-bullet-icon"></span>
+              <span>Founders sit in every steering session for direct context, no telephone game.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Why Choose Us -->
+        <div class="about-card-full group relative flex flex-col gap-5 p-7 rounded-[24px] border border-[rgba(255,255,255,0.06)] bg-[rgba(6,14,22,0.9)] backdrop-blur-[18px] cursor-pointer md:col-span-2 lg:col-span-1">
+          <div class="about-glow absolute -inset-24 bg-[radial-gradient(circle_at_top,rgba(0,214,255,0.22),rgba(0,0,0,0))] opacity-0 group-hover:opacity-40 transition-opacity duration-[650ms]"></div>
+          <div class="relative z-[2] flex items-center gap-4">
+            <div class="about-icon-full">
+              <svg viewBox="0 0 24 24" fill="none" class="w-10 h-10">
+                <path d="M12 2l2.9 5.88L21 9.27l-4.5 4.39L17.8 21 12 17.77 6.2 21l1.3-7.34L3 9.27l6.1-1.39L12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-white font-semibold text-xl m-0">Why Clients Stay</h3>
+              <p class="text-[rgba(210,230,225,0.86)] text-[0.98rem] m-0">We run delivery like operations: measurable, observable, and obsessively reliable.</p>
+            </div>
+          </div>
+          <ul class="about-bullets">
+            <li class="about-bullet">
+              <span class="about-bullet-icon"></span>
+              <span>Direct access to the builders — no account layer between you and the people coding.</span>
+            </li>
+            <li class="about-bullet">
+              <span class="about-bullet-icon"></span>
+              <span>Transparent scorecards covering burn, velocity, incidents, and innovation backlog.</span>
+            </li>
+            <li class="about-bullet">
+              <span class="about-bullet-icon"></span>
+              <span>Post-launch support anchored by SLOs, runbooks, and on-call coverage.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="min-h-screen flex flex-col justify-center relative" aria-label="Projects">
+      <div class="flex flex-col items-center text-center gap-4 mb-12 w-full max-w-[1200px] mx-auto px-6">
+        <span class="about-pill">Case Files</span>
+        <h2 class="m-0">Selected Projects</h2>
+        <p class="text-[rgba(210,230,225,0.86)] text-[1rem] m-0 max-w-3xl leading-relaxed">
+          Highlights from engagements where we owned the full stack—architecture, delivery, and the ops playbooks after launch.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1200px] mx-auto px-6">
+        <!-- Immersive commerce launch -->
+        <article class="project-card group p-8 flex flex-col gap-6">
+          <div class="project-gloss"></div>
+          <div class="relative z-[2] flex items-start justify-between gap-4">
+            <div class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" class="w-9 h-9">
+                <path d="M12 2l9 5-9 5-9-5 9-5zm0 10l9-5v10l-9 5-9-5V7l9 5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+          </div>
+            <div class="flex flex-col items-end gap-2">
+              <span class="project-tag">Metaverse</span>
+              <span class="text-[rgba(180,210,220,0.72)] text-xs tracking-[0.22em] uppercase">Polygon · Stripe · Next.js</span>
+        </div>
+          </div>
+          <div class="relative z-[2] flex flex-col gap-3">
+            <h3 class="text-white text-xl font-semibold m-0">Metaverse Land Desk</h3>
+            <p class="text-[rgba(205,225,230,0.84)] m-0 text-[0.98rem] leading-relaxed">
+              Onboarded crypto + card buyers into a virtual land sale. We handled KYC, fiat ramps, and NFT minting while syncing pricing live from on-chain liquidity.
+            </p>
+          </div>
+          <div class="relative z-[2] flex items-center justify-between gap-4 text-left">
+            <div class="project-stat">
+              <span>Time to MVP</span>
+              <span>8 weeks</span>
+            </div>
+            <div class="project-stat">
+              <span>Peak Concurrency</span>
+              <span>32k bidders</span>
+            </div>
+            <div class="project-stat">
+              <span>Ops</span>
+              <span>Zero Sev-1s</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Capital routing platform -->
+        <article class="project-card group p-8 flex flex-col gap-6">
+          <div class="project-gloss"></div>
+          <div class="relative z-[2] flex items-start justify-between gap-4">
+            <div class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" class="w-9 h-9">
+                <path d="M4 4h16v4H4V4zm0 6h16v4H4v-4zm0 6h9v4H4v-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M17 16l3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+          </div>
+            <div class="flex flex-col items-end gap-2">
+              <span class="project-tag">DeFi Infra</span>
+              <span class="text-[rgba(180,210,220,0.72)] text-xs tracking-[0.22em] uppercase">Solidity · Rust · React</span>
+        </div>
+          </div>
+          <div class="relative z-[2] flex flex-col gap-3">
+            <h3 class="text-white text-xl font-semibold m-0">Liquidity Router & Ops UI</h3>
+            <p class="text-[rgba(205,225,230,0.84)] m-0 text-[0.98rem] leading-relaxed">
+              Built a multi-DEX router with deterministic fallbacks, vault accounting, and a command center for risk, fees, and on-call interventions.
+            </p>
+          </div>
+          <div class="relative z-[2] flex items-center justify-between gap-4 text-left">
+            <div class="project-stat">
+              <span>Swaps / Day</span>
+              <span>180k avg</span>
+            </div>
+            <div class="project-stat">
+              <span>Latency</span>
+              <span>&lt; 380ms</span>
+            </div>
+            <div class="project-stat">
+              <span>Audit</span>
+              <span>0 criticals</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- AI-enabled operations -->
+        <article class="project-card group p-8 flex flex-col gap-6">
+          <div class="project-gloss"></div>
+          <div class="relative z-[2] flex items-start justify-between gap-4">
+            <div class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" class="w-9 h-9">
+                <path d="M12 2a7 7 0 0 0-7 7v2H3v10h18V11h-2V9a7 7 0 0 0-7-7zm0 2a5 5 0 0 1 5 5v2H7V9a5 5 0 0 1 5-5zm-7 9h14v6H5v-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+          </div>
+            <div class="flex flex-col items-end gap-2">
+              <span class="project-tag">AI Ops</span>
+              <span class="text-[rgba(180,210,220,0.72)] text-xs tracking-[0.22em] uppercase">Python · LangChain · Twilio</span>
+        </div>
+          </div>
+          <div class="relative z-[2] flex flex-col gap-3">
+            <h3 class="text-white text-xl font-semibold m-0">Concierge Scheduler</h3>
+            <p class="text-[rgba(205,225,230,0.84)] m-0 text-[0.98rem] leading-relaxed">
+              Delivered an AI meeting assistant that verifies crypto payments, triggers Jitsi rooms, and routes escalations to humans with full audit trails.
+            </p>
+          </div>
+          <div class="relative z-[2] flex items-center justify-between gap-4 text-left">
+            <div class="project-stat">
+              <span>Automation</span>
+              <span>82% tasks</span>
+            </div>
+            <div class="project-stat">
+              <span>Coverage</span>
+              <span>14 locales</span>
+            </div>
+            <div class="project-stat">
+              <span>CSAT</span>
+              <span>4.8 / 5</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="min-h-screen flex flex-col justify-center relative" aria-label="Contact">
+      <div class="flex flex-col items-center text-center gap-4 mb-12 w-full max-w-[1200px] mx-auto px-6">
+        <span class="contact-pill">Partner With Us</span>
+        <h2 class="m-0">Let's Start a Conversation</h2>
+        <p class="text-[rgba(210,230,225,0.86)] text-[1rem] m-0 max-w-3xl leading-relaxed">
+          Drop us a line and we’ll spin up the right squad—architects, platform engineers, and product leads who stay hands-on through delivery.
+        </p>
+        <div class="contact-metrics">
+          <div class="contact-metric">
+            <span>Response time</span>
+            <span>&lt; 12 hours</span>
+          </div>
+          <div class="contact-metric">
+            <span>Kickoff window</span>
+            <span>1-2 weeks</span>
+          </div>
+          <div class="contact-metric">
+            <span>Engagement length</span>
+            <span>6-18 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_440px] gap-8 items-start max-w-[1200px] mx-auto px-6">
+        <div class="flex flex-col gap-6">
+          <div class="contact-card">
+            <div class="flex items-center gap-4">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+                  <path d="M5 4h14l1 8H4l1-8zm-1 10h16l-2 6H6l-2-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="flex flex-col gap-1">
+                <h3 class="text-white text-xl m-0">What We Offer</h3>
+                <span class="text-[rgba(200,220,235,0.8)] text-sm tracking-[0.18em] uppercase">No fluff, just delivery</span>
+              </div>
+            </div>
+            <ul class="contact-list">
+              <li><span class="text-[#00eaff]">•</span><span>Zero-cost discovery session with founders + tech leads.</span></li>
+              <li><span class="text-[#00eaff]">•</span><span>Baseline solution architecture, staffing plan, and timeline within 5 business days.</span></li>
+              <li><span class="text-[#00eaff]">•</span><span>Transparent runway tracking and weekly delivery scorecards.</span></li>
+              <li><span class="text-[#00eaff]">•</span><span>Optional on-call coverage and post-launch optimization sprints.</span></li>
+          </ul>
+        </div>
+
+          <div class="contact-card">
+            <div class="flex items-center gap-4">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" class="w-8 h-8">
+                  <path d="M4 6h16M4 12h10M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="flex flex-col gap-1">
+                <h3 class="text-white text-xl m-0">Engagement Modes</h3>
+                <span class="text-[rgba(200,220,235,0.8)] text-sm tracking-[0.18em] uppercase">Pick your cadence</span>
+              </div>
+            </div>
+            <ul class="contact-list">
+              <li><span class="text-[#00eaff]">•</span><span>Product pods (PM + design + engineering) for greenfield builds.</span></li>
+              <li><span class="text-[#00eaff]">•</span><span>Platform task forces to stabilize and scale core infrastructure.</span></li>
+              <li><span class="text-[#00eaff]">•</span><span>Advisory retainers covering audits, SRE, and roadmap reviews.</span></li>
+            </ul>
+            <div class="flex flex-wrap gap-3 text-[0.7rem] tracking-[0.2em] uppercase text-[rgba(255,255,255,0.62)]">
+              <span class="project-tag">Fixed Scope</span>
+              <span class="project-tag">Dedicated Squad</span>
+              <span class="project-tag">Embedded Lead</span>
+            </div>
+          </div>
+        </div>
+
+        <form id="contactForm" class="contact-form-card" action="https://formsubmit.co/f49a527007ab059dd1d13c50e1968eda" method="POST">
+          <input type="hidden" name="_subject" value="OpsCore Labs — New Lead">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <div class="flex flex-col gap-2">
+            <span class="text-[rgba(255,255,255,0.62)] text-xs tracking-[0.2em] uppercase">Direct Line</span>
+            <a href="mailto:contact@opscorelabs.com" class="text-white text-lg font-semibold hover:text-[#7fffe6]">contact@opscorelabs.com</a>
+            <span class="text-[rgba(200,220,235,0.78)] text-sm">Prefer async? Drop context here and we’ll route it instantly.</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="contact-field">
+              <label for="name" class="contact-label">Name *</label>
+              <input id="name" name="name" required class="contact-input" placeholder="Jane Doe">
+            </div>
+            <div class="contact-field">
+              <label for="email" class="contact-label">Email *</label>
+              <input id="email" name="email" type="email" required class="contact-input" placeholder="you@company.com">
+            </div>
+          </div>
+          <div class="contact-field">
+            <label for="company" class="contact-label">Company</label>
+            <input id="company" name="company" class="contact-input" placeholder="Org or DAO name">
+          </div>
+          <div class="contact-field">
+            <label for="message" class="contact-label">Project Brief *</label>
+            <textarea id="message" name="message" rows="5" required class="contact-input" placeholder="What's the mission? Timelines, tech stack, success criteria..."></textarea>
+          </div>
+          <div class="flex flex-wrap items-center gap-4">
+            <button class="contact-submit" id="submitBtn" type="submit">Send Message</button>
+            <div id="submitState" class="text-[rgba(200,220,235,0.82)] text-sm" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section id="footer" class="min-h-screen flex flex-col justify-center relative" aria-label="Footer">
+      <div class="flex flex-col items-center text-center gap-4 mb-12 w-full max-w-[1200px] mx-auto px-6">
+        <span class="footer-pill">OpsCore Labs</span>
+        <h2 class="m-0">Build Partner of Record</h2>
+        <p class="text-[rgba(210,230,225,0.86)] text-[1rem] m-0 max-w-3xl leading-relaxed">
+          Prototype to scale, we stay hands-on: composable frontends, regulated cloud, token networks, and AI ops decks that stand up to audits.
+        </p>
+        </div>
+
+      <div class="footer-grid max-w-[1200px] mx-auto px-6">
+        <div class="footer-card">
+          <div class="footer-heading">
+            <h3>Signal & Craft</h3>
+            <span>How we operate</span>
+          </div>
+          <p class="footer-copy">
+            Every engagement pairs product strategists with platform engineers. We design for observability, compliance, and the velocity you need to out-ship competitors.
+          </p>
+          <div class="footer-meta">
+            <div><strong>Headquarters:</strong> Remote-first · NYC / Berlin · GMT-5 to GMT+2</div>
+            <div><strong>Focus Tracks:</strong> Web3 settlements, AI-assisted ops, mission-critical cloud.</div>
+          </div>
+        </div>
+
+        <div class="footer-card">
+          <div class="footer-heading">
+            <h3>Navigation</h3>
+            <span>Explore the deck</span>
+        </div>
+          <ul class="footer-list">
+            <li><a href="#home" onclick="navTo('#home')">Home</a></li>
+            <li><a href="#services" onclick="navTo('#services')">What We Do</a></li>
+            <li><a href="#projects" onclick="navTo('#projects')">Projects</a></li>
+            <li><a href="#tech" onclick="navTo('#tech')">Technologies</a></li>
+            <li><a href="#contact" onclick="navTo('#contact')">Contact</a></li>
+          </ul>
+      </div>
+
+        <div class="footer-card">
+          <div class="footer-heading">
+            <h3>Direct Line</h3>
+            <span>Let's ship</span>
+          </div>
+          <div class="footer-meta">
+            <div><strong>Email:</strong> <a href="mailto:contact@opscorelabs.com" class="text-[#00eaff] hover:text-[#7fffe6]">contact@opscorelabs.com</a></div>
+            <div><strong>Signal / Telegram:</strong> founder relay on request</div>
+            <div><strong>Company:</strong> OpsCore Labs LLC</div>
+            <div><strong>Perspectives:</strong> Delivery notes and teardown essays dropping quarterly.</div>
+            <div><strong>Social:</strong> 
+              <a href="https://x.com/theopscorelabs" target="_blank" rel="noopener noreferrer" class="text-[#00eaff] hover:text-[#7fffe6]">X (Twitter)</a> · 
+              <a href="https://www.linkedin.com/company/109899127" target="_blank" rel="noopener noreferrer" class="text-[#00eaff] hover:text-[#7fffe6]">LinkedIn</a> · 
+              <a href="https://medium.com/@opscorelabsofficial" target="_blank" rel="noopener noreferrer" class="text-[#00eaff] hover:text-[#7fffe6]">Medium</a> · 
+              <a href="https://www.instagram.com/theopscorelabs" target="_blank" rel="noopener noreferrer" class="text-[#00eaff] hover:text-[#7fffe6]">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom max-w-[1200px] mx-auto px-6">
+        <span>© 2025 OpsCore Labs LLC. All rights reserved.</span>
+        <span>Compliance-ready builds for fintech, Web3, SaaS, and enterprise transformation teams.</span>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  /* ===== Background Video Setup ===== */
+  const bgVideo = document.getElementById('bg-video');
+  if(bgVideo){
+    const replayVideo = () => {
+      try {
+        bgVideo.pause();
+        bgVideo.currentTime = 0;
+        setTimeout(() => {
+          bgVideo.play().catch(e => console.log('Video replay prevented:', e));
+        }, 30);
+      } catch(err){
+        console.log('Video restart failed:', err);
+      }
+    };
+
+    // Ensure video loops continuously
+    bgVideo.addEventListener('ended', replayVideo);
+    bgVideo.addEventListener('stalled', replayVideo);
+    bgVideo.addEventListener('suspend', () => {
+      if(bgVideo.currentTime > 0){
+        replayVideo();
+      }
+    });
+
+    bgVideo.addEventListener('loadeddata', () => {
+      console.log('Background video loaded successfully');
+      bgVideo.loop = true;
+    bgVideo.play().catch(e => console.log('Video autoplay prevented:', e));
+    });
+    bgVideo.addEventListener('canplay', () => {
+      bgVideo.loop = true;
+      bgVideo.play().catch(e => console.log('Video autoplay prevented:', e));
+    });
+    // Fallback: if video fails to load, log error but keep it visible for debugging
+    bgVideo.addEventListener('error', (e) => {
+      console.error('Background video failed to load:', e);
+      console.error('Video source:', bgVideo.currentSrc || bgVideo.src);
+    });
+    // Try to play immediately and enforce looping property
+    bgVideo.loop = true;
+    bgVideo.setAttribute('loop', 'true');
+    bgVideo.play().catch(e => console.log('Video autoplay prevented:', e));
+  }
+
+  /* ===== Card Stacking Scroll Animation - Optimized ===== */
+  (function() {
+    const sections = document.querySelectorAll('section');
+    let currentActiveIndex = 0;
+    let rafId = null;
     
-    <title>OpsCore Labs - Technology Solutions</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    // Initialize: Home section is always visible
+    if(sections[0]) {
+      sections[0].classList.add('revealed', 'active');
+    }
+    
+    // Update section states based on active index
+    function updateSectionStates(activeIndex) {
+      sections.forEach((section, index) => {
+        if(index === 0) return; // Skip home section
+        
+        section.classList.remove('active', 'prev', 'next');
+        
+        if(index === activeIndex) {
+          section.classList.add('active', 'revealed');
+        } else if(index < activeIndex) {
+          section.classList.add('prev', 'revealed');
+        } else {
+          section.classList.add('next');
+        }
+      });
+    }
+    
+    // Simple scroll handler using requestAnimationFrame
+    function handleScroll() {
+      if(rafId) return;
+      
+      rafId = requestAnimationFrame(() => {
+        let maxVisible = 0;
+        let maxIndex = currentActiveIndex;
+        
+        sections.forEach((section, index) => {
+          if(index === 0) return;
+          
+          const rect = section.getBoundingClientRect();
+          const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+          
+          // Mark as revealed if visible (very low threshold)
+          if(visibleHeight > 0 || rect.top < window.innerHeight) {
+            section.classList.add('revealed');
+          }
+          
+          // Find section closest to viewport center
+          if(visibleHeight > maxVisible && visibleHeight > window.innerHeight * 0.15) {
+            maxVisible = visibleHeight;
+            maxIndex = index;
+          }
+          
+          // If section is in viewport, make sure it's active
+          if(rect.top >= 0 && rect.top < window.innerHeight * 0.7 && visibleHeight > 100) {
+            maxIndex = index;
+            maxVisible = visibleHeight;
+          }
+        });
+        
+        // Always update if we found a valid section or if current is still valid
+        if(maxIndex > 0) {
+          if(maxIndex !== currentActiveIndex) {
+            currentActiveIndex = maxIndex;
+          }
+          updateSectionStates(currentActiveIndex);
+        } else if(currentActiveIndex > 0) {
+          // Keep current active section visible
+          updateSectionStates(currentActiveIndex);
+        }
+        
+        rafId = null;
+      });
+    }
+    
+    // Check if section is visible on page load
+    function checkInitialVisibility() {
+      sections.forEach((section, index) => {
+        if(index === 0) return;
+        
+        const rect = section.getBoundingClientRect();
+        const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+        
+        if(visibleHeight > 50) {
+          section.classList.add('revealed');
+        }
+      });
+    }
+    
+    // Simple IntersectionObserver for reveals
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const section = entry.target;
+        const sectionIndex = Array.from(sections).indexOf(section);
+        
+        if(sectionIndex === 0) return;
+        
+        if(entry.isIntersecting) {
+          section.classList.add('revealed');
+          // Also trigger state update
+          if(sectionIndex === currentActiveIndex || currentActiveIndex === 0) {
+            currentActiveIndex = sectionIndex;
+            updateSectionStates(currentActiveIndex);
+          }
+        }
+      });
+    }, {
+      threshold: 0.05,
+      rootMargin: '100px'
+    });
+    
+    // Observe all sections except home
+    sections.forEach((section, index) => {
+      if(index > 0) {
+        observer.observe(section);
+        section.classList.add('next');
+      }
+    });
+    
+    // Check initial visibility
+    checkInitialVisibility();
+    
+    // Force reveal first section after home if none are active
+    if(sections.length > 1 && currentActiveIndex === 0) {
+      // Check which section is visible
+      const firstSection = sections[1];
+      if(firstSection) {
+        const rect = firstSection.getBoundingClientRect();
+        if(rect.top < window.innerHeight) {
+          firstSection.classList.add('revealed');
+          currentActiveIndex = 1;
+          updateSectionStates(currentActiveIndex);
+        }
+      }
+    }
+    
+    // Use throttled scroll handler
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(handleScroll, 50);
+    }, { passive: true });
+    
+    // Initial state update
+    handleScroll();
+    
+    // Force check after a short delay
+    setTimeout(() => {
+      checkInitialVisibility();
+      handleScroll();
+      // If still no active section, activate the first one
+      if(currentActiveIndex === 0 && sections.length > 1) {
+        sections[1].classList.add('revealed');
+        currentActiveIndex = 1;
+        updateSectionStates(currentActiveIndex);
+      }
+    }, 300);
+    
+    // Also check on load and after a short delay for DOM ready
+    if(document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          checkInitialVisibility();
+          handleScroll();
+        }, 100);
+      });
+    } else {
+      setTimeout(() => {
+        checkInitialVisibility();
+        handleScroll();
+      }, 100);
+    }
+    
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        checkInitialVisibility();
+        handleScroll();
+      }, 200);
+    });
+  })();
+
+  /* ===== Navigation helper (smooth) ===== */
+  function navTo(hash){
+    const el = document.querySelector(hash);
+    if(!el) return;
+    el.scrollIntoView({behavior:'smooth', block:'start'});
+    history.replaceState(null,'',hash);
+  }
+
+  /* ===== Mobile navigation toggle ===== */
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+
+  function setMobileNav(open){
+    if(!menuToggle || !mobileNav) return;
+    menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuToggle.classList.toggle('open', open);
+    mobileNav.classList.toggle('open', open);
+    mobileNav.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+
+  if(menuToggle && mobileNav){
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      setMobileNav(!isOpen);
+    });
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setMobileNav(false));
+    });
+    window.addEventListener('resize', () => {
+      if(window.innerWidth >= 768){
+        setMobileNav(false);
+      }
+    });
+    // Close menu on scroll to avoid overlay lingering
+    window.addEventListener('scroll', () => {
+      if(window.innerWidth < 768){
+        setMobileNav(false);
+      }
+    }, { passive: true });
+  }
+
+  /* ===== Build coin edge (opaque rim to prevent see-through) ===== */
+  function buildEdges(){
+    const edge = document.getElementById('coin-edge');
+    if(!edge) return;
+    edge.innerHTML = '';
+    const wrap = document.querySelector('.coin-wrap');
+    if(!wrap) return;
+    const diameter = wrap.clientWidth;
+    const faces = 64;
+    // Coin depth is 24px (12px front + 12px back), make edge thick enough to block view
+    const thickness = 24;
+    const faceLen = Math.PI * diameter / faces;
+    for(let i=0;i<faces;i++){
+      const d = document.createElement('div');
+      d.style.height = faceLen + 'px';
+      d.style.width = thickness + 'px';
+      const rotateZ = (360/faces)*i + 90;
+      const translateY = diameter/2 - faceLen/2;
+      const translateX1 = diameter/2 - thickness/2;
+      const translateX2 = diameter/2;
+      // Center edge at Z=0 and position at rim, spanning full coin depth
+      d.style.transform = `translateY(${translateY}px) translateX(${translateX1}px) rotateZ(${rotateZ}deg) translateX(${translateX2}px) rotateY(90deg) translateZ(0px)`;
+      d.style.borderRadius = '2px';
+      d.style.background = 'linear-gradient(90deg, rgba(0,200,140,1), rgba(0,255,200,1))';
+      d.style.opacity = '1';
+      d.style.backfaceVisibility = 'hidden';
+      d.style.boxShadow = 'inset 0 0 8px rgba(0,0,0,0.3)';
+      edge.appendChild(d);
+    }
+  }
+  window.addEventListener('resize', ()=>{ clearTimeout(window._ed); window._ed = setTimeout(buildEdges, 120); });
+  buildEdges();
+
+  /* ===== Stats: count-up (odometer-style increments) ===== */
+  function countUp(el, end, duration=900, suffix=''){
+    let start = null;
+    const from = 0;
+    function step(ts){
+      if(!start) start = ts;
+      const t = Math.min(1, (ts - start)/duration);
+      const val = Math.floor(from + (end - from) * t);
+      el.textContent = val + (suffix||'');
+      if(t < 1) requestAnimationFrame(step);
+      else el.textContent = (end === Infinity ? '∞' : end) + (suffix||'');
+    }
+    requestAnimationFrame(step);
+  }
+
+  function initStats(){
+    const stats = document.querySelectorAll('.stat');
+    stats.forEach((st, idx) => {
+      const valueEl = st.querySelector('.value');
+      const target = st.dataset.target === '999' ? Infinity : Number(st.dataset.target);
+      const animDur = 900 + idx*200;
+      if(target === Infinity){
+        // incremental to large number then "∞"
+        let observed = 0;
+        let step = 35;
+        const id = setInterval(()=>{ observed += step; valueEl.textContent = (observed>999?999:observed); if(observed>999){ clearInterval(id); valueEl.textContent='∞'; } }, 30);
+      } else {
+        const suffix = st.dataset.suffix || '';
+        countUp(valueEl, target, animDur, suffix);
+      }
+    });
+  }
+
+  // Use IntersectionObserver to trigger when in view
+  const statSection = document.getElementById('stats');
+  if(statSection){
+    const io = new IntersectionObserver((entries, obs)=>{
+      entries.forEach(en => {
+        if(en.isIntersecting){
+          initStats();
+          obs.disconnect();
+        }
+      });
+    }, {threshold:0.1, rootMargin:'0px 0px -50px 0px'});
+    io.observe(statSection);
+  }
+
+  // ensure navigation anchors work for users who click nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      // If navTo used via onclick attribute, let that handle; otherwise fallback
+      if(a.getAttribute('onclick')) return;
+      e.preventDefault();
+      const tgt = document.querySelector(a.getAttribute('href'));
+      if(tgt) tgt.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  /* ===== Contact form AJAX submission ===== */
+  const contactForm = document.getElementById('contactForm');
+  if(contactForm){
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submitBtn');
+      const submitState = document.getElementById('submitState');
+      if(!submitBtn) return contactForm.submit();
+
+      if(submitState) submitState.textContent = 'Sending…';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: formData,
+        });
+
+        if(!res.ok){
+          throw new Error(`Request failed with status ${res.status}`);
+        }
+
+        contactForm.reset();
+        if(submitState) submitState.textContent = '✔ Message sent — thanks!';
+        submitBtn.textContent = 'Message Sent';
+
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+          if(submitState) submitState.textContent = '';
+        }, 4000);
+      } catch(err){
+        console.error('Contact form submission failed:', err);
+        if(submitState) submitState.textContent = '⚠ Something went wrong. Please try again.';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    });
+  }
+
+  // build edges after layout
+  window.addEventListener('load', ()=>{ buildEdges(); });
+  </script>
+</body>
 </html>
