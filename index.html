@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>OpsCore Labs – Enterprise IT Consulting & Software Development</title>
+  <title>OpsCore Labs – IT Consulting & Software Development</title>
   <meta name="description" content="OpsCore Labs delivers enterprise-grade cloud, DevOps, and blockchain solutions. We build scalable, secure systems for modern businesses.">
   <link rel="icon" href="logo.png">
   
@@ -11,6 +11,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Iconify for Technology Icons -->
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -207,13 +210,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         <!-- Logo -->
-        <div class="flex-shrink-0 flex items-center gap-3">
+        <a href="#hero" class="flex-shrink-0 flex items-center gap-3 cursor-pointer hover:opacity-80 transition">
           <div class="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg overflow-hidden bg-white">
             <!-- Fallback logo logic -->
             <img src="https://opscorelabs.com/logo.png" onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\'w-full h-full bg-brand-600 flex items-center justify-center text-white font-bold\'>O</div>'" alt="OpsCore Labs Logo" class="w-full h-full object-cover">
           </div>
           <span class="font-heading font-bold text-xl tracking-tight text-slate-900">OpsCore<span class="text-brand-600">Labs</span></span>
-        </div>
+        </a>
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-8">
@@ -250,7 +253,7 @@
   </nav>
 
   <!-- HERO SECTION -->
-  <section class="relative pt-28 pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
+  <section id="hero" class="relative pt-28 pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
     <!-- Background Pattern -->
     <div class="absolute inset-0 -z-10 h-full w-full bg-white">
       <div class="hero-pattern absolute inset-0 opacity-40"></div>
@@ -262,10 +265,6 @@
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         <!-- Text Content -->
         <div class="text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-xs font-bold uppercase tracking-wide mb-6">
-            <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
-            Now accepting new enterprise partners
-          </div>
           <h1 class="text-3xl sm:text-4xl lg:text-6xl font-heading font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
             Engineering trust into <br>
             <span class="text-gradient">Digital Transformation.</span>
@@ -435,8 +434,8 @@
   <!-- TECHNOLOGIES / STACK -->
   <section id="tech" class="py-16 sm:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-100 pb-8">
-        <div class="max-w-2xl">
+      <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 border-b border-slate-100 pb-8">
+        <div class="max-w-2xl text-center md:text-left w-full md:w-auto">
           <h2 class="text-sm sm:text-base font-bold text-brand-600 uppercase tracking-wide mb-2">Technology Stack</h2>
           <h3 class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-slate-900">Built with modern standards</h3>
         </div>
@@ -448,52 +447,225 @@
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
         <!-- Tech Items -->
         <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:react" style="font-size: 40px; color: #61DAFB;"></iconify-icon>
+          </div>
           <span class="font-bold text-slate-700">React</span>
           <span class="text-xs text-slate-500 mt-1">Frontend</span>
         </div>
         <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:nodedotjs" style="font-size: 40px; color: #339933;"></iconify-icon>
+          </div>
           <span class="font-bold text-slate-700">Node.js</span>
           <span class="text-xs text-slate-500 mt-1">Backend</span>
         </div>
         <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:amazonaws" style="font-size: 40px; color: #FF9900;"></iconify-icon>
+          </div>
           <span class="font-bold text-slate-700">AWS</span>
           <span class="text-xs text-slate-500 mt-1">Cloud</span>
         </div>
         <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:googlecloud" style="font-size: 40px; color: #4285F4;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">GCP</span>
+          <span class="text-xs text-slate-500 mt-1">Cloud</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:docker" style="font-size: 40px; color: #2496ED;"></iconify-icon>
+          </div>
           <span class="font-bold text-slate-700">Docker</span>
           <span class="text-xs text-slate-500 mt-1">DevOps</span>
         </div>
         <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:solidity" style="font-size: 40px; color: #627EEA;"></iconify-icon>
+          </div>
           <span class="font-bold text-slate-700">Solidity</span>
           <span class="text-xs text-slate-500 mt-1">Web3</span>
         </div>
         <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:python" style="font-size: 40px; color: #3776AB;"></iconify-icon>
+          </div>
           <span class="font-bold text-slate-700">Python</span>
           <span class="text-xs text-slate-500 mt-1">AI/ML</span>
         </div>
         <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:postgresql" style="font-size: 40px; color: #336791;"></iconify-icon>
+          </div>
           <span class="font-bold text-slate-700">PostgreSQL</span>
           <span class="text-xs text-slate-500 mt-1">Database</span>
         </div>
         <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:typescript" style="font-size: 40px; color: #3178C6;"></iconify-icon>
+          </div>
           <span class="font-bold text-slate-700">TypeScript</span>
           <span class="text-xs text-slate-500 mt-1">Language</span>
         </div>
         <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:go" style="font-size: 40px; color: #00ADD8;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">Golang</span>
+          <span class="text-xs text-slate-500 mt-1">Language</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:nextdotjs" style="font-size: 40px; color: #000000;"></iconify-icon>
+          </div>
           <span class="font-bold text-slate-700">Next.js</span>
           <span class="text-xs text-slate-500 mt-1">Framework</span>
         </div>
         <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:terraform" style="font-size: 40px; color: #7B42BC;"></iconify-icon>
+          </div>
           <span class="font-bold text-slate-700">Terraform</span>
           <span class="text-xs text-slate-500 mt-1">IaC</span>
         </div>
         <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:kubernetes" style="font-size: 40px; color: #326CE5;"></iconify-icon>
+          </div>
           <span class="font-bold text-slate-700">Kubernetes</span>
           <span class="text-xs text-slate-500 mt-1">Orchestration</span>
         </div>
         <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:figma" style="font-size: 40px; color: #F24E1E;"></iconify-icon>
+          </div>
           <span class="font-bold text-slate-700">Figma</span>
           <span class="text-xs text-slate-500 mt-1">Design</span>
+        </div>
+        <!-- Blockchain/Web3 Technologies -->
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:ethereum" style="font-size: 40px; color: #627EEA;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">Ethereum</span>
+          <span class="text-xs text-slate-500 mt-1">Blockchain</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Hard Hat - Construction Helmet -->
+              <path d="M12 3L5 7.5v1.5c0 5 3.5 7.5 7 7.5s7-2.5 7-7.5V7.5L12 3z" fill="#F9FAFB" stroke="#627EEA" stroke-width="1.2"/>
+              <path d="M8 11h8M9 13h6" stroke="#627EEA" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M10 17h4" stroke="#627EEA" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="font-bold text-slate-700">Hardhat</span>
+          <span class="text-xs text-slate-500 mt-1">Web3</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:web3dotjs" style="font-size: 40px; color: #F16822;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">Web3.js</span>
+          <span class="text-xs text-slate-500 mt-1">Web3</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Ethers.js - Letter E in Ethereum style -->
+              <circle cx="12" cy="12" r="10" fill="#627EEA"/>
+              <path d="M9 9h6v1.5H10.5v1H14v1.5H10.5v1H15v1.5H9V9z" fill="white"/>
+            </svg>
+          </div>
+          <span class="font-bold text-slate-700">Ethers.js</span>
+          <span class="text-xs text-slate-500 mt-1">Web3</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:ipfs" style="font-size: 40px; color: #65C2CB;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">IPFS</span>
+          <span class="text-xs text-slate-500 mt-1">Storage</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:chainlink" style="font-size: 40px; color: #375BD2;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">Chainlink</span>
+          <span class="text-xs text-slate-500 mt-1">Oracle</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:polygon" style="font-size: 40px; color: #8247E5;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">Polygon</span>
+          <span class="text-xs text-slate-500 mt-1">Blockchain</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:rust" style="font-size: 40px; color: #000000;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">Rust</span>
+          <span class="text-xs text-slate-500 mt-1">Language</span>
+        </div>
+        <!-- DevOps Technologies -->
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:ansible" style="font-size: 40px; color: #EE0000;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">Ansible</span>
+          <span class="text-xs text-slate-500 mt-1">DevOps</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:jenkins" style="font-size: 40px; color: #D24939;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">Jenkins</span>
+          <span class="text-xs text-slate-500 mt-1">CI/CD</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:githubactions" style="font-size: 40px; color: #2088FF;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">GitHub Actions</span>
+          <span class="text-xs text-slate-500 mt-1">CI/CD</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:gitlab" style="font-size: 40px; color: #FC6D26;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">GitLab CI</span>
+          <span class="text-xs text-slate-500 mt-1">CI/CD</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:prometheus" style="font-size: 40px; color: #E6522C;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">Prometheus</span>
+          <span class="text-xs text-slate-500 mt-1">Monitoring</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:grafana" style="font-size: 40px; color: #F46800;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">Grafana</span>
+          <span class="text-xs text-slate-500 mt-1">Monitoring</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:redis" style="font-size: 40px; color: #DC382D;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">Redis</span>
+          <span class="text-xs text-slate-500 mt-1">Database</span>
+        </div>
+        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center">
+            <iconify-icon icon="simple-icons:mongodb" style="font-size: 40px; color: #47A248;"></iconify-icon>
+          </div>
+          <span class="font-bold text-slate-700">MongoDB</span>
+          <span class="text-xs text-slate-500 mt-1">Database</span>
         </div>
       </div>
     </div>
