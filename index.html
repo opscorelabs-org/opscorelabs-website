@@ -185,6 +185,49 @@
     #localhost-warning {
         display: none;
     }
+
+    /* Marquee Animation */
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .marquee-container {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .marquee-content {
+      display: flex;
+      animation: marquee 30s linear infinite;
+      gap: 1rem;
+      cursor: grab;
+      user-select: none;
+      will-change: transform;
+      transform: translateZ(0); /* Force GPU acceleration */
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+
+    .marquee-content:hover:not(.dragging) {
+      animation-play-state: paused;
+    }
+
+    .marquee-content.dragging {
+      animation-play-state: paused;
+      cursor: grabbing;
+    }
+
+    .marquee-item {
+      flex-shrink: 0;
+      width: 140px;
+      pointer-events: none;
+    }
   </style>
 <script type="importmap">
 {
@@ -431,245 +474,484 @@
     </div>
   </section>
 
-  <!-- TECHNOLOGIES / STACK -->
-  <section id="tech" class="py-16 sm:py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 border-b border-slate-100 pb-8">
-        <div class="max-w-2xl text-center md:text-left w-full md:w-auto">
-          <h2 class="text-sm sm:text-base font-bold text-brand-600 uppercase tracking-wide mb-2">Technology Stack</h2>
-          <h3 class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-slate-900">Built with modern standards</h3>
-        </div>
-        <a href="#contact" class="hidden md:inline-flex items-center font-semibold text-brand-600 hover:text-brand-700">
-          View full capability statement <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-        </a>
-      </div>
+<!-- TECHNOLOGIES / STACK SECTION -->
+<style>
+  /* Marquee CSS */
+  .marquee-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    touch-action: pan-y;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+  
+  .marquee-wrapper:active {
+    cursor: grabbing;
+  }
 
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
-        <!-- Tech Items -->
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:react" style="font-size: 40px; color: #61DAFB;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">React</span>
-          <span class="text-xs text-slate-500 mt-1">Frontend</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:nodedotjs" style="font-size: 40px; color: #339933;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Node.js</span>
-          <span class="text-xs text-slate-500 mt-1">Backend</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:amazonaws" style="font-size: 40px; color: #FF9900;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">AWS</span>
-          <span class="text-xs text-slate-500 mt-1">Cloud</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:googlecloud" style="font-size: 40px; color: #4285F4;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">GCP</span>
-          <span class="text-xs text-slate-500 mt-1">Cloud</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:docker" style="font-size: 40px; color: #2496ED;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Docker</span>
-          <span class="text-xs text-slate-500 mt-1">DevOps</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:solidity" style="font-size: 40px; color: #627EEA;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Solidity</span>
-          <span class="text-xs text-slate-500 mt-1">Web3</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:python" style="font-size: 40px; color: #3776AB;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Python</span>
-          <span class="text-xs text-slate-500 mt-1">AI/ML</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:postgresql" style="font-size: 40px; color: #336791;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">PostgreSQL</span>
-          <span class="text-xs text-slate-500 mt-1">Database</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:typescript" style="font-size: 40px; color: #3178C6;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">TypeScript</span>
-          <span class="text-xs text-slate-500 mt-1">Language</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:go" style="font-size: 40px; color: #00ADD8;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Golang</span>
-          <span class="text-xs text-slate-500 mt-1">Language</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:nextdotjs" style="font-size: 40px; color: #000000;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Next.js</span>
-          <span class="text-xs text-slate-500 mt-1">Framework</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:terraform" style="font-size: 40px; color: #7B42BC;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Terraform</span>
-          <span class="text-xs text-slate-500 mt-1">IaC</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:kubernetes" style="font-size: 40px; color: #326CE5;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Kubernetes</span>
-          <span class="text-xs text-slate-500 mt-1">Orchestration</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:figma" style="font-size: 40px; color: #F24E1E;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Figma</span>
-          <span class="text-xs text-slate-500 mt-1">Design</span>
-        </div>
-        <!-- Blockchain/Web3 Technologies -->
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:ethereum" style="font-size: 40px; color: #627EEA;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Ethereum</span>
-          <span class="text-xs text-slate-500 mt-1">Blockchain</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Hard Hat - Construction Helmet -->
-              <path d="M12 3L5 7.5v1.5c0 5 3.5 7.5 7 7.5s7-2.5 7-7.5V7.5L12 3z" fill="#F9FAFB" stroke="#627EEA" stroke-width="1.2"/>
-              <path d="M8 11h8M9 13h6" stroke="#627EEA" stroke-width="1.2" stroke-linecap="round"/>
-              <path d="M10 17h4" stroke="#627EEA" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <span class="font-bold text-slate-700">Hardhat</span>
-          <span class="text-xs text-slate-500 mt-1">Web3</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:web3dotjs" style="font-size: 40px; color: #F16822;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Web3.js</span>
-          <span class="text-xs text-slate-500 mt-1">Web3</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Ethers.js - Letter E in Ethereum style -->
-              <circle cx="12" cy="12" r="10" fill="#627EEA"/>
-              <path d="M9 9h6v1.5H10.5v1H14v1.5H10.5v1H15v1.5H9V9z" fill="white"/>
-            </svg>
-          </div>
-          <span class="font-bold text-slate-700">Ethers.js</span>
-          <span class="text-xs text-slate-500 mt-1">Web3</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:ipfs" style="font-size: 40px; color: #65C2CB;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">IPFS</span>
-          <span class="text-xs text-slate-500 mt-1">Storage</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:chainlink" style="font-size: 40px; color: #375BD2;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Chainlink</span>
-          <span class="text-xs text-slate-500 mt-1">Oracle</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:polygon" style="font-size: 40px; color: #8247E5;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Polygon</span>
-          <span class="text-xs text-slate-500 mt-1">Blockchain</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:rust" style="font-size: 40px; color: #000000;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Rust</span>
-          <span class="text-xs text-slate-500 mt-1">Language</span>
-        </div>
-        <!-- DevOps Technologies -->
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:ansible" style="font-size: 40px; color: #EE0000;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Ansible</span>
-          <span class="text-xs text-slate-500 mt-1">DevOps</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:jenkins" style="font-size: 40px; color: #D24939;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Jenkins</span>
-          <span class="text-xs text-slate-500 mt-1">CI/CD</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:githubactions" style="font-size: 40px; color: #2088FF;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">GitHub Actions</span>
-          <span class="text-xs text-slate-500 mt-1">CI/CD</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:gitlab" style="font-size: 40px; color: #FC6D26;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">GitLab CI</span>
-          <span class="text-xs text-slate-500 mt-1">CI/CD</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:prometheus" style="font-size: 40px; color: #E6522C;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Prometheus</span>
-          <span class="text-xs text-slate-500 mt-1">Monitoring</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:grafana" style="font-size: 40px; color: #F46800;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Grafana</span>
-          <span class="text-xs text-slate-500 mt-1">Monitoring</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:redis" style="font-size: 40px; color: #DC382D;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">Redis</span>
-          <span class="text-xs text-slate-500 mt-1">Database</span>
-        </div>
-        <div class="flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-200 hover:bg-white hover:shadow-md transition duration-300">
-          <div class="w-10 h-10 mb-3 flex items-center justify-center">
-            <iconify-icon icon="simple-icons:mongodb" style="font-size: 40px; color: #47A248;"></iconify-icon>
-          </div>
-          <span class="font-bold text-slate-700">MongoDB</span>
-          <span class="text-xs text-slate-500 mt-1">Database</span>
-        </div>
+  .marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    will-change: transform;
+    padding: 1rem 0;
+  }
+
+  .marquee-item {
+    flex-shrink: 0;
+    width: 130px;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
+
+<section id="tech" class="py-16 sm:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 border-b border-slate-100 pb-8">
+      <div class="max-w-2xl text-center md:text-left w-full md:w-auto">
+        <h2 class="text-sm sm:text-base font-bold text-brand-600 uppercase tracking-wide mb-2">Technology Stack</h2>
+        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-slate-900">Built with modern standards</h3>
       </div>
     </div>
-  </section>
+
+    <div class="space-y-16">
+      
+      <!-- 1. CLOUD, DEVOPS & INFRASTRUCTURE -->
+      <div>
+        <h3 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mb-6 text-center">Cloud, DevOps & Infrastructure</h3>
+        <div class="marquee-wrapper" data-speed="0.6">
+          <div class="marquee-track">
+            <!-- SET 1 -->
+            <div class="flex gap-6">
+              <!-- Cloud -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:aws" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">AWS</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:google-cloud" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">GCP</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:microsoft-azure" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Azure</span></div>
+              
+              <!-- FIXED: IBM Cloud -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:ibm" style="font-size: 32px; color: #052FAD;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">IBM Cloud</span></div>
+              
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:digital-ocean" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">DigitalOcean</span></div>
+              
+              <!-- Tools -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:git-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Git</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:github-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">GitHub</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:gitlab-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">GitLab</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:jenkins" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Jenkins</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:docker-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Docker</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:kubernetes" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Kubernetes</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:openshift" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">OpenShift</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:terraform-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Terraform</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:ansible" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Ansible</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:prometheus" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Prometheus</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:grafana" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Grafana</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:datadog-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Datadog</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:argo-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">ArgoCD</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:chef" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Chef</span></div>
+            </div>
+
+            <!-- SET 2 (DUPLICATE) -->
+            <div class="flex gap-6">
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:aws" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">AWS</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:google-cloud" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">GCP</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:microsoft-azure" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Azure</span></div>
+              
+              <!-- FIXED: IBM Cloud -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:ibm" style="font-size: 32px; color: #052FAD;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">IBM Cloud</span></div>
+              
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:digital-ocean" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">DigitalOcean</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:git-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Git</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:github-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">GitHub</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:gitlab-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">GitLab</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:jenkins" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Jenkins</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:docker-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Docker</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:kubernetes" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Kubernetes</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:openshift" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">OpenShift</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:terraform-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Terraform</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:ansible" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Ansible</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:prometheus" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Prometheus</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:grafana" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Grafana</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:datadog-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Datadog</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:argo-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">ArgoCD</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:chef" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Chef</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. BLOCKCHAIN & CRYPTO -->
+      <div>
+        <h3 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mb-6 text-center">Blockchain & Crypto</h3>
+        <div class="marquee-wrapper" data-speed="0.5">
+          <div class="marquee-track">
+            <!-- SET 1 -->
+            <div class="flex gap-6">
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:ethereum" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Ethereum</span></div>
+              
+              <!-- FIXED: Polygon -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:polygon" style="font-size: 32px; color: #7B3FE4;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Polygon</span></div>
+              
+              <!-- FIXED: Solana -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:solana" style="font-size: 32px; color: #9945FF;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Solana</span></div>
+              
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:binance" style="font-size: 32px; color: #F3BA2F;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">BSC</span></div>
+              
+              <!-- FIXED: Hyperledger -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:hyperledger" style="font-size: 32px; color: #2F3134;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Hyperledger</span></div>
+
+              
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:solidity" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Solidity</span></div>
+              
+              <!-- Removed Vyper as requested (no stable icon) -->
+              
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:rust" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Rust</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:metamask-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">MetaMask</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:alchemy" style="font-size: 32px; color: #000000;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Alchemy</span></div>
+              
+
+              
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="lucide:lock" style="font-size: 32px; color: #334155;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">ZKP / FHE</span></div>
+            </div>
+
+            <!-- SET 2 (DUPLICATE) -->
+            <div class="flex gap-6">
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:ethereum" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Ethereum</span></div>
+              
+              <!-- FIXED: Polygon -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:polygon" style="font-size: 32px; color: #7B3FE4;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Polygon</span></div>
+              
+              <!-- FIXED: Solana -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:solana" style="font-size: 32px; color: #9945FF;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Solana</span></div>
+              
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:binance" style="font-size: 32px; color: #F3BA2F;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">BSC</span></div>
+              
+              <!-- FIXED: Hyperledger -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:hyperledger" style="font-size: 32px; color: #2F3134;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Hyperledger</span></div>
+              
+              <!-- FIXED: Avalanche -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:avalanche" style="font-size: 32px; color: #E84142;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Avalanche</span></div>
+              
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:solidity" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Solidity</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:rust" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Rust</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:metamask-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">MetaMask</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:alchemy" style="font-size: 32px; color: #000000;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Alchemy</span></div>
+              
+              <!-- FIXED: The Graph -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:thegraph" style="font-size: 32px; color: #6F4CFF;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">The Graph</span></div>
+              
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="lucide:lock" style="font-size: 32px; color: #334155;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">ZKP / FHE</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. FRONTEND DEVELOPMENT -->
+      <div>
+        <h3 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mb-6 text-center">Frontend Development</h3>
+        <div class="marquee-wrapper" data-speed="0.5">
+          <div class="marquee-track">
+            <!-- SET 1 -->
+            <div class="flex gap-6">
+              <!-- Core -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:html-5" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">HTML5</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:css-3" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">CSS3</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:tailwindcss-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Tailwind</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:javascript" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">JavaScript</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:typescript-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">TypeScript</span></div>
+              <!-- Frameworks -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:react" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">React</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:nextjs-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Next.js</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:angular-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Angular</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:vue" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Vue.js</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:svelte-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Svelte</span></div>
+              <!-- UI & State -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:material-ui" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Material UI</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:shadcnui" style="font-size: 32px; color: #000000;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Shadcn</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:redux" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Redux</span></div>
+              <!-- Build & Test -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:vitejs" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Vite</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:jest" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Jest</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:cypress-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Cypress</span></div>
+            </div>
+
+            <!-- SET 2 (DUPLICATE) -->
+            <div class="flex gap-6">
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:html-5" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">HTML5</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:css-3" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">CSS3</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:tailwindcss-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Tailwind</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:javascript" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">JavaScript</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:typescript-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">TypeScript</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:react" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">React</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:nextjs-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Next.js</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:angular-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Angular</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:vue" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Vue.js</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:svelte-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Svelte</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:material-ui" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Material UI</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:shadcnui" style="font-size: 32px; color: #000000;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Shadcn</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:redux" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Redux</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:vitejs" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Vite</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:jest" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Jest</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:cypress-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Cypress</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. BACKEND -->
+      <div>
+        <h3 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mb-6 text-center">Backend</h3>
+        <div class="marquee-wrapper" data-speed="0.5">
+          <div class="marquee-track">
+            <!-- SET 1 -->
+            <div class="flex gap-6">
+              <!-- Languages & Frameworks -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:nodejs-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Node.js</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:python" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Python</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:go" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">GoLang</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:java" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Java</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:ruby" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Ruby</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:php" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">PHP</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:nestjs" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">NestJS</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:spring-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Spring</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:laravel" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Laravel</span></div>
+              <!-- DBs -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:postgresql" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Postgres</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:mongodb-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">MongoDB</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:redis" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Redis</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:neo4j" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Neo4j</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:graphql" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">GraphQL</span></div>
+            </div>
+
+            <!-- SET 2 (DUPLICATE) -->
+            <div class="flex gap-6">
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:nodejs-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Node.js</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:python" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Python</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:go" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">GoLang</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:java" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Java</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:ruby" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Ruby</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:php" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">PHP</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:nestjs" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">NestJS</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:spring-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Spring</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:laravel" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Laravel</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:postgresql" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Postgres</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:mongodb-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">MongoDB</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:redis" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Redis</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:neo4j" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Neo4j</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:graphql" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">GraphQL</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. MOBILE APP DEVELOPMENT -->
+      <div>
+        <h3 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mb-6 text-center">Mobile App Development</h3>
+        <div class="marquee-wrapper" data-speed="0.6">
+          <div class="marquee-track">
+            <!-- SET 1 -->
+            <div class="flex gap-6">
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:react" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">React Native</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:flutter" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Flutter</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:ionic-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Ionic</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:expo-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Expo</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:xamarin" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Xamarin</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:swift" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Swift</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:kotlin-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Kotlin</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:firebase" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Firebase</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:supabase-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Supabase</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:appium" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Appium</span></div>
+            </div>
+
+            <!-- SET 2 (DUPLICATE) -->
+            <div class="flex gap-6">
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:react" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">React Native</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:flutter" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Flutter</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:ionic-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Ionic</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:expo-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Expo</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:xamarin" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Xamarin</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:swift" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Swift</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:kotlin-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Kotlin</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:firebase" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Firebase</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:supabase-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Supabase</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:appium" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Appium</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. AI / ML -->
+      <div>
+        <h3 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mb-6 text-center">Artificial Intelligence / ML</h3>
+        <div class="marquee-wrapper" data-speed="0.6">
+          <div class="marquee-track">
+            <!-- SET 1 -->
+            <div class="flex gap-6">
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:python" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Python</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:r-lang" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">R</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:julia" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Julia</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:tensorflow" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">TensorFlow</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:pytorch-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">PyTorch</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:scikitlearn" style="font-size: 32px; color: #F7931E;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Scikit-learn</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:hugging-face-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">HuggingFace</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:openai-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">OpenAI</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:langchain" style="font-size: 32px; color: #1C3C3C;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">LangChain</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:apache-spark" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Spark</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:hadoop" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Hadoop</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:kafka-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Kafka</span></div>
+              
+              <!-- FIXED: Databricks -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:databricks" style="font-size: 32px; color: #FF3621;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Databricks</span></div>
+              
+
+            </div>
+
+            <!-- SET 2 (DUPLICATE) -->
+            <div class="flex gap-6">
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:python" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Python</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:r-lang" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">R</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:julia" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Julia</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:tensorflow" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">TensorFlow</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:pytorch-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">PyTorch</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:scikitlearn" style="font-size: 32px; color: #F7931E;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Scikit-learn</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:hugging-face-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">HuggingFace</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:openai-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">OpenAI</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:langchain" style="font-size: 32px; color: #1C3C3C;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">LangChain</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:apache-spark" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Spark</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:hadoop" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Hadoop</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:kafka-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Kafka</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:databricks" style="font-size: 32px; color: #FF3621;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Databricks</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:amazonsagemaker" style="font-size: 32px; color: #FF9900;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">SageMaker</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. CYBERSECURITY (Fixed Icons) -->
+      <div>
+        <h3 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mb-6 text-center">Cybersecurity</h3>
+        <div class="marquee-wrapper" data-speed="0.5">
+          <div class="marquee-track">
+            <!-- SET 1 -->
+            <div class="flex gap-6">
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:burpsuite" style="font-size: 32px; color: #FF6633;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Burp Suite</span></div>
+              
+              <!-- FIXED: Kali Linux -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:kalilinux" style="font-size: 32px; color: #557C94;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Kali Linux</span></div>
+              
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:wireshark" style="font-size: 32px; color: #1679A7;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Wireshark</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:owasp" style="font-size: 32px; color: #000000;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">OWASP</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:snyk" style="font-size: 32px; color: #4C4A73;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Snyk</span></div>
+              
+              <!-- FIXED: SonarQube (Simple Icon) -->
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:sonarqube" style="font-size: 32px; color: #4E9BCD;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">SonarQube</span></div>
+              
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:okta-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Okta</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:auth0-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Auth0</span></div>
+            </div>
+
+            <!-- SET 2 (DUPLICATE) -->
+            <div class="flex gap-6">
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:burpsuite" style="font-size: 32px; color: #FF6633;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Burp Suite</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:kalilinux" style="font-size: 32px; color: #557C94;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Kali Linux</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:wireshark" style="font-size: 32px; color: #1679A7;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Wireshark</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:owasp" style="font-size: 32px; color: #000000;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">OWASP</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:snyk" style="font-size: 32px; color: #4C4A73;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Snyk</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="simple-icons:sonarqube" style="font-size: 32px; color: #4E9BCD;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">SonarQube</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:okta-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Okta</span></div>
+              <div class="marquee-item p-4 bg-slate-50 rounded-xl border border-slate-100"><iconify-icon icon="logos:auth0-icon" style="font-size: 32px;"></iconify-icon><span class="mt-2 font-bold text-slate-700 text-sm">Auth0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JS for Draggable Marquee -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const marquees = document.querySelectorAll('.marquee-wrapper');
+
+      marquees.forEach(wrapper => {
+        const track = wrapper.querySelector('.marquee-track');
+        let speed = parseFloat(wrapper.dataset.speed) || 0.5;
+        
+        let position = 0;
+        let isDragging = false;
+        let startX = 0;
+        let prevX = 0;
+        let animationId;
+
+        const updateDimensions = () => {
+          return track.scrollWidth / 2;
+        };
+        
+        let halfWidth = updateDimensions();
+        window.addEventListener('resize', () => { halfWidth = updateDimensions(); });
+
+        const animate = () => {
+          if (!isDragging) {
+            position -= speed;
+          }
+
+          if (position <= -halfWidth) {
+            position = 0;
+          }
+          if (position > 0) {
+            position = -halfWidth;
+          }
+
+          track.style.transform = `translate3d(${position}px, 0, 0)`;
+          animationId = requestAnimationFrame(animate);
+        };
+
+        // Mouse Events
+        wrapper.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          startX = e.pageX;
+          prevX = position;
+          wrapper.style.cursor = 'grabbing';
+        });
+
+        window.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          const delta = e.pageX - startX;
+          position = prevX + delta;
+        });
+
+        window.addEventListener('mouseup', () => {
+          isDragging = false;
+          wrapper.style.cursor = 'grab';
+        });
+
+        // Touch Events (Mobile)
+        wrapper.addEventListener('touchstart', (e) => {
+          isDragging = true;
+          startX = e.touches[0].pageX;
+          prevX = position;
+        });
+
+        window.addEventListener('touchmove', (e) => {
+          if (!isDragging) return;
+          const delta = e.touches[0].pageX - startX;
+          position = prevX + delta;
+        });
+
+        window.addEventListener('touchend', () => {
+          isDragging = false;
+        });
+
+        animate();
+      });
+    });
+  </script>
+</section>
 
   <!-- WORKFLOW / PROCESS SECTION -->
   <section id="process" class="py-16 sm:py-24 bg-slate-50 border-t border-slate-100">
@@ -790,15 +1072,15 @@
              </div>
              <!-- Fake Chart: Colors fixed via config -->
              <div class="flex items-end space-x-2 h-40 sm:h-48">
-               <div class="w-full bg-brand-100 rounded-t h-[40%]"></div>
-               <div class="w-full bg-brand-200 rounded-t h-[60%]"></div>
-               <div class="w-full bg-brand-300 rounded-t h-[45%]"></div>
-               <div class="w-full bg-brand-400 rounded-t h-[80%]"></div>
-               <div class="w-full bg-brand-500 rounded-t h-[75%]"></div>
-               <div class="w-full bg-brand-600 rounded-t h-[95%]"></div>
+               <div class="w-full bg-brand-100 rounded-t h-[99%]"></div>
+               <div class="w-full bg-brand-200 rounded-t h-[99%]"></div>
+               <div class="w-full bg-brand-300 rounded-t h-[99%]"></div>
+               <div class="w-full bg-brand-400 rounded-t h-[99%]"></div>
+               <div class="w-full bg-brand-500 rounded-t h-[99%]"></div>
+               <div class="w-full bg-brand-600 rounded-t h-[99%]"></div>
              </div>
              <div class="mt-6 pt-6 border-t border-slate-100 flex justify-between text-xs sm:text-sm text-slate-500">
-               <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+               <span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
              </div>
            </div>
            <!-- Removed "Top Rated" Container as requested -->
@@ -1090,12 +1372,12 @@
           
           // Show success message
           setTimeout(() => {
-            status.innerHTML = "Message sent successfully! We'll be in touch soon.";
-            status.classList.remove('hidden', 'text-red-500');
-            status.classList.add('text-green-600');
-            form.reset();
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = 'Send Message';
+              status.innerHTML = "Message sent successfully! We'll be in touch soon.";
+              status.classList.remove('hidden', 'text-red-500');
+              status.classList.add('text-green-600');
+              form.reset();
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = 'Send Message';
             
             // Reset form target
             form.target = originalTarget;
@@ -1112,6 +1394,227 @@
           }, 800);
         });
     }
+
+    // Marquee Drag/Touch Interaction - DJ Turntable Style
+    (function() {
+      const marqueeContents = document.querySelectorAll('.marquee-content');
+      
+      marqueeContents.forEach(marqueeContent => {
+        let isDragging = false;
+        let startX = 0;
+        let startTransform = 0;
+        let lastUpdateTime = 0;
+        let velocity = 0;
+        let lastX = 0;
+        let rafId = null;
+        
+        // Get current transform value in pixels - accurate capture
+        function getCurrentTransformPixels() {
+          // Check if we have an inline style transform (during drag)
+          if (marqueeContent.style.transform) {
+            // Check for translate3d first
+            const match3d = marqueeContent.style.transform.match(/translate3d\(([^,]+),/);
+            if (match3d) {
+              const value = match3d[1].trim();
+              if (value.includes('px')) {
+                return parseFloat(value);
+              }
+            }
+            // Check for translateX
+            const matchX = marqueeContent.style.transform.match(/translateX\(([^)]+)\)/);
+            if (matchX) {
+              const value = matchX[1].trim();
+              if (value.includes('px')) {
+                return parseFloat(value);
+              }
+            }
+          }
+          
+          // Get from computed style (during animation)
+          // The browser automatically converts percentage-based transforms to pixels
+          const style = window.getComputedStyle(marqueeContent);
+          const transform = style.transform;
+          
+          if (transform && transform !== 'none') {
+            try {
+              const matrix = new DOMMatrix(transform);
+              const pixelValue = matrix.e; // e is the translateX value in pixels
+              if (!isNaN(pixelValue)) {
+                return pixelValue;
+              }
+            } catch (e) {
+              // If matrix parsing fails, return 0
+            }
+          }
+          
+          return 0;
+        }
+        
+        // Mouse events
+        marqueeContent.addEventListener('mousedown', (e) => {
+          e.preventDefault();
+          
+          // Capture position immediately and synchronously BEFORE any changes
+          startTransform = getCurrentTransformPixels();
+          
+          // Set up drag state
+          isDragging = true;
+          marqueeContent.classList.add('dragging');
+          startX = e.pageX;
+          lastX = e.pageX;
+          lastUpdateTime = Date.now();
+          velocity = 0;
+          
+          // CRITICAL: Set transform FIRST, then pause animation
+          // Use translate3d for GPU acceleration
+          marqueeContent.style.transform = `translate3d(${startTransform}px, 0, 0)`;
+          marqueeContent.style.animationPlayState = 'paused';
+        });
+        
+        marqueeContent.addEventListener('mouseleave', () => {
+          if (isDragging) {
+            isDragging = false;
+            marqueeContent.classList.remove('dragging');
+            resumeAnimation();
+          }
+        });
+        
+        marqueeContent.addEventListener('mouseup', () => {
+          if (isDragging) {
+            isDragging = false;
+            marqueeContent.classList.remove('dragging');
+            resumeAnimation();
+          }
+        });
+        
+        function updateTransformDuringDrag(currentX) {
+          if (!isDragging) return;
+          
+          const deltaX = currentX - startX; // Positive = drag right, Negative = drag left
+          
+          // Calculate new transform position
+          // Dragging RIGHT (positive deltaX) moves content RIGHT (less negative)
+          // Dragging LEFT (negative deltaX) moves content LEFT (more negative)
+          let newTransform = startTransform + deltaX;
+          
+          // Get the width of half the content (seamless loop boundary)
+          const halfWidth = marqueeContent.scrollWidth / 2;
+          
+          // Handle seamless loop - wrap around when crossing boundaries
+          if (newTransform > 0) {
+            // Wrapped past the right edge, jump to equivalent position on left
+            newTransform = newTransform - halfWidth;
+            startTransform = newTransform;
+            startX = currentX;
+          } else if (newTransform < -halfWidth) {
+            // Wrapped past the left edge, jump to equivalent position on right
+            newTransform = newTransform + halfWidth;
+            startTransform = newTransform;
+            startX = currentX;
+          }
+          
+          // Apply the transform immediately - no delays, no requestAnimationFrame
+          // Use translate3d for GPU acceleration and smoother updates
+          marqueeContent.style.transform = `translate3d(${newTransform}px, 0, 0)`;
+        }
+        
+        marqueeContent.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          
+          e.preventDefault();
+          
+          // Update transform immediately for real-time response
+          updateTransformDuringDrag(e.pageX);
+        });
+        
+        // Touch events for mobile
+        marqueeContent.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          
+          // Capture position immediately and synchronously BEFORE any changes
+          startTransform = getCurrentTransformPixels();
+          
+          // Set up drag state
+          isDragging = true;
+          marqueeContent.classList.add('dragging');
+          startX = e.touches[0].pageX;
+          lastX = e.touches[0].pageX;
+          lastUpdateTime = Date.now();
+          velocity = 0;
+          
+          // CRITICAL: Set transform FIRST, then pause animation
+          // Use translate3d for GPU acceleration
+          marqueeContent.style.transform = `translate3d(${startTransform}px, 0, 0)`;
+          marqueeContent.style.animationPlayState = 'paused';
+        }, { passive: false });
+        
+        marqueeContent.addEventListener('touchend', () => {
+          if (isDragging) {
+            isDragging = false;
+            marqueeContent.classList.remove('dragging');
+            resumeAnimation();
+          }
+        });
+        
+        marqueeContent.addEventListener('touchcancel', () => {
+          if (isDragging) {
+            isDragging = false;
+            marqueeContent.classList.remove('dragging');
+            resumeAnimation();
+          }
+        });
+        
+        marqueeContent.addEventListener('touchmove', (e) => {
+          if (!isDragging) return;
+          
+          e.preventDefault();
+          
+          // Update transform immediately for real-time response
+          updateTransformDuringDrag(e.touches[0].pageX);
+        }, { passive: false });
+        
+        function resumeAnimation() {
+          // Get the current transform position (from inline style during drag)
+          const currentPos = getCurrentTransformPixels();
+          const halfWidth = marqueeContent.scrollWidth / 2;
+          
+          // Normalize position to be within the loop range [-halfWidth, 0]
+          let normalizedPos = currentPos;
+          while (normalizedPos > 0) normalizedPos -= halfWidth;
+          while (normalizedPos < -halfWidth) normalizedPos += halfWidth;
+          
+          // Calculate animation progress (0 to 1)
+          // normalizedPos is negative, so we use absolute value
+          const progress = Math.abs(normalizedPos) / halfWidth;
+          
+          // Calculate animation delay to match current position
+          // Progress 0 = start of animation, Progress 1 = end of animation
+          const animationDuration = 30; // 30 seconds
+          const delay = -progress * animationDuration;
+          
+          // Reset animation completely first
+          marqueeContent.style.animation = 'none';
+          marqueeContent.style.animationDelay = '0s';
+          
+          // Force reflow to ensure animation reset is applied
+          marqueeContent.offsetHeight;
+          
+          // Use double requestAnimationFrame to ensure smooth transition
+          // First frame: prepare
+          requestAnimationFrame(() => {
+            // Second frame: apply new animation
+            requestAnimationFrame(() => {
+              // Remove inline transform to let animation take over
+              marqueeContent.style.transform = '';
+              
+              // Restart animation from the calculated position
+              marqueeContent.style.animation = `marquee ${animationDuration}s linear infinite`;
+              marqueeContent.style.animationDelay = `${delay}s`;
+            });
+          });
+        }
+      });
+    })();
   </script>
 </body>
 </html>
