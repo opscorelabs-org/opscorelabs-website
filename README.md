@@ -1,27 +1,23 @@
 # OpsCore Labs Website
 
-A cutting-edge, high-tech website for OpsCore Labs LLC featuring blockchain-inspired animations, 3D effects, matrix-style digital rain, and interactive glowing elements.
+A modern, professional website for OpsCore Labs LLC featuring interactive 3D Rubik's cube, technology stack showcases, and a clean, enterprise-focused design.
 
 ## 🚀 Features
 
-- **Epic Animations**: Blockchain node networks, matrix digital rain, 3D rotating globe
-- **Glowing Design**: Multi-layered glow effects with floating orbs and chain animations
-- **3D Graphics**: Interactive Three.js globe with distortion effects
+- **Interactive 3D Rubik's Cube**: Draggable 3D cube animation in the hero section
+- **Technology Stack Showcase**: Animated marquee displays of technologies across multiple categories
 - **Mobile Responsive**: Perfect scaling from mobile to desktop with responsive typography
-- **Performance Optimized**: 60fps animations with proper z-index layering
-- **Contact Form**: Google Forms integration for reliable email handling
+- **Performance Optimized**: Smooth animations with CSS and React hooks
+- **Contact Form**: FormSubmit integration for reliable email handling
 - **GitHub Pages Ready**: Automatic CI/CD deployment with GitHub Actions
 
 ## 🛠️ Tech Stack
 
-- **React 18** - Modern UI framework with hooks and context
+- **React 18** - Modern UI framework with hooks
 - **TypeScript** - Type-safe development with strict configuration
 - **Vite** - Lightning-fast build tool with HMR and optimization
 - **Tailwind CSS** - Utility-first styling with custom animations
-- **Three.js + React Three Fiber** - 3D graphics and WebGL animations
-- **Framer Motion** - Smooth animations and gesture handling
-- **Canvas API** - Custom blockchain and matrix animations
-- **Zustand** - Lightweight state management
+- **CSS Animations** - Custom animations for marquee effects and 3D transforms
 
 ## 📦 Installation
 
@@ -32,69 +28,80 @@ A cutting-edge, high-tech website for OpsCore Labs LLC featuring blockchain-insp
    ```
 
 2. **Install dependencies**
+   
+   Using npm:
    ```bash
    npm install
    ```
-
-3. **Set up environment variables**
+   
+   Or using yarn:
    ```bash
-   cp env.example .env.local
+   yarn install
    ```
    
-   Edit `.env.local` and configure your email service:
-   ```env
-   # For Formspree (recommended)
-   VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/YOUR_FORM_ID
-   
-   # For EmailJS (alternative)
-   VITE_EMAILJS_SERVICE_ID=your_service_id
-   VITE_EMAILJS_TEMPLATE_ID=your_template_id
-   VITE_EMAILJS_PUBLIC_KEY=your_public_key
+   **Note**: Make sure you have Node.js (v16+) installed. If `yarn` is not installed, you can install it globally:
+   ```bash
+   npm install -g yarn
    ```
 
 ## 🚀 Development
 
 1. **Start the development server**
+   
+   Using npm:
    ```bash
    npm run dev
    ```
+   
+   Or using yarn:
+   ```bash
+   yarn dev
+   ```
 
 2. **Build for production**
+   
+   Using npm:
    ```bash
    npm run build
    ```
+   
+   Or using yarn:
+   ```bash
+   yarn build
+   ```
 
 3. **Preview production build**
+   
+   Using npm:
    ```bash
    npm run preview
    ```
-
-## 📧 Email Service Setup (FREE with Google Forms)
-
-### Google Forms Integration (Recommended - 100% FREE)
-
-1. **Create a Google Form**
-   - Go to [forms.google.com](https://forms.google.com)
-   - Create a new form with fields: Name, Email, Company, Message
-   - Get the form URL and field IDs
-
-2. **Configure Environment**
-   ```env
-   VITE_GOOGLE_FORM_URL=https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse
-   VITE_GOOGLE_FORM_ID=YOUR_FORM_ID
+   
+   Or using yarn:
+   ```bash
+   yarn preview
    ```
 
-3. **Update Field IDs**
-   - Edit `src/services/emailService.ts`
-   - Replace the field IDs with your actual Google Form field IDs
+## 📧 Email Service Setup
 
-**📖 Detailed Setup Guide:** See [GOOGLE_FORMS_SETUP.md](GOOGLE_FORMS_SETUP.md) for complete instructions.
+### FormSubmit Integration (Current Implementation)
 
-### Benefits of Google Forms:
+The contact form uses [FormSubmit](https://formsubmit.co/) which is free and requires no backend setup.
+
+1. **How it works**
+   - The form submits directly to `contact@opscorelabs.com` via FormSubmit
+   - After the first submission, FormSubmit will send an activation email
+   - Click the activation link in the email to enable the form permanently
+
+2. **Customization**
+   - Edit `src/components/sections/Contact.tsx` to change the form action URL
+   - The form includes auto-response and template configuration
+
+### Benefits of FormSubmit:
 - ✅ **Completely FREE** - No monthly fees or limits
-- ✅ **Reliable** - Google's infrastructure
+- ✅ **No Backend Required** - Works directly from the frontend
 - ✅ **Email Notifications** - Get notified of new submissions
-- ✅ **Data Storage** - All responses saved in Google Sheets
+- ✅ **Spam Protection** - Built-in spam filtering
 - ✅ **Mobile Friendly** - Works on all devices
 
 ## 🚀 Deployment
@@ -126,76 +133,74 @@ A cutting-edge, high-tech website for OpsCore Labs LLC featuring blockchain-insp
 
 2. Configure DNS settings to point to your GitHub Pages URL
 
-## ✨ Epic Animations
+## ✨ Key Features
 
-This website features cutting-edge animations that create an immersive tech experience:
+This website features modern, professional animations and interactions:
 
-### 🔗 Blockchain Node Network
-- **15 connected nodes** that move and pulse across the screen
-- **Dynamic connections** between nearby nodes
-- **Glowing effects** with color transitions
-- **Real-time movement** with collision detection
+### 🎲 Interactive 3D Rubik's Cube
+- **Auto-rotating cube** in the hero section
+- **Mouse/touch drag** to manually rotate
+- **Smooth animations** with CSS 3D transforms
+- **Responsive sizing** for mobile devices
 
-### 🌧️ Matrix Digital Rain
-- **Japanese characters** and binary code falling
-- **Glowing cyan text** with trail effects
-- **Smooth animation** at 0.8x speed for elegance
-- **Low intensity** to avoid overwhelming the content
+### 🎠 Technology Stack Marquee
+- **Draggable marquees** for each technology category
+- **Smooth scrolling** animations
+- **Touch-friendly** for mobile devices
+- **Multiple categories**: Cloud/DevOps, Blockchain, Frontend, Backend, Mobile, AI/ML, Cybersecurity
 
-### 🌍 3D Rotating Globe
-- **Three.js WebGL** globe with distortion effects
-- **Auto-rotation** with smooth camera movement
-- **Purple glow** with transparency effects
-- **Interactive controls** (disabled for background use)
-
-### ✨ Multi-Layer Glow System
-- **Floating orbs** with staggered animations
-- **Chain glow effects** with moving patterns
-- **Gradient overlays** in multiple directions
-- **Flowing animations** with conic gradients
+### 🎨 Modern Design
+- **Clean, professional** layout
+- **Glass morphism** navigation
+- **Smooth scroll** behavior
+- **Responsive grid** layouts
 
 ## 🎨 Customization
 
 ### Colors and Theme
 
-Edit `src/styles/globals.css` to customize the color scheme:
+Edit `tailwind.config.js` to customize the color scheme:
 
-```css
-:root {
-  --color-glow-primary: #00d4ff;    /* Primary glow color */
-  --color-glow-secondary: #ff006e;  /* Secondary glow color */
-  --color-glow-accent: #8338ec;     /* Accent glow color */
+```javascript
+colors: {
+  brand: {
+    600: '#2563eb', // Primary brand color
+    // ... other shades
+  }
 }
-```
-
-### Team Members
-
-Update `src/utils/constants.ts` to add your team members:
-
-```typescript
-export const TEAM_PLACEHOLDERS = [
-  {
-    name: 'Your Name',
-    role: 'Your Role',
-    bio: 'Your bio',
-    image: '/your-photo.jpg',
-  },
-  // Add more team members...
-];
 ```
 
 ### Services
 
-Modify the services in `src/utils/constants.ts`:
+Modify the services in `src/components/sections/Services.tsx`:
 
 ```typescript
-export const SERVICES = [
+const services = [
   {
     title: 'Your Service',
     description: 'Service description',
-    icon: '🎨',
+    icon: <YourIcon />,
+    bgColor: 'bg-blue-50',
+    iconColor: 'text-brand-600',
   },
   // Add more services...
+];
+```
+
+### Technology Stack
+
+Update the technology stacks in `src/components/sections/Technology.tsx`:
+
+```typescript
+const techStacks = [
+  {
+    title: 'Your Category',
+    speed: 0.5,
+    items: [
+      { icon: 'logos:your-icon', name: 'Technology Name' },
+      // Add more technologies...
+    ],
+  },
 ];
 ```
 
@@ -204,35 +209,28 @@ export const SERVICES = [
 ```
 src/
 ├── components/
-│   ├── ui/           # Reusable UI components (Button, Logo, Card, etc.)
-│   ├── layout/       # Header, Footer, Navigation
-│   ├── sections/     # Hero, Services, Team, Contact
-│   └── animations/   # Epic animations (Blockchain, Matrix, 3D Globe, ChainGlow)
-├── hooks/            # Custom React hooks (mouse position, intersection observer)
-├── services/         # Email services (Google Forms integration)
-├── utils/            # Helper functions and constants
-├── types/            # TypeScript type definitions
-└── styles/           # Global styles with custom animations and glow effects
-```
-
-## 🧪 Testing
-
-```bash
-# Run tests
-npm run test
-
-# Run tests with UI
-npm run test:ui
+│   ├── layout/       # Header, Footer
+│   └── sections/     # Hero, Stats, Services, Technology, Process, About, Contact
+├── hooks/            # Custom React hooks (mobile menu, navbar scroll, rubiks cube, marquee drag, contact form)
+├── styles/           # Global styles with custom animations and CSS
+└── main.tsx          # Application entry point
 ```
 
 ## 📝 Scripts
 
+Using npm:
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
-- `npm run test` - Run tests
 - `npm run lint` - Run ESLint
 - `npm run format` - Format code with Prettier
+
+Using yarn:
+- `yarn dev` - Start development server
+- `yarn build` - Build for production
+- `yarn preview` - Preview production build
+- `yarn lint` - Run ESLint
+- `yarn format` - Format code with Prettier
 
 ## 🤝 Contributing
 
@@ -252,4 +250,4 @@ For support, email contact@opscorelabs.com or create an issue in this repository
 
 ---
 
-© 2024 OpsCore Labs LLC. All rights reserved.
+© 2025 OpsCore Labs LLC. All rights reserved.
