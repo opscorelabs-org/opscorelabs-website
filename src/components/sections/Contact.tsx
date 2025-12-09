@@ -1,262 +1,163 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Button, Input, Card, GlowEffect } from '@/components/ui';
-import { SITE_CONFIG } from '@/utils/constants';
-import { useIntersectionObserver } from '@/hooks';
-import { ContactFormData } from '@/types';
+import { useContactForm } from '@/hooks';
+import { useEffect } from 'react';
 
-export const Contact: React.FC = () => {
-  const { ref, hasIntersected } = useIntersectionObserver();
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    company: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [errors, setErrors] = useState<Partial<ContactFormData>>({});
+const Contact = () => {
+  const { isSubmitting, status, handleSubmit } = useContactForm();
 
-  const validateForm = (): boolean => {
-    const newErrors: Partial<ContactFormData> = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+  useEffect(() => {
+    // Set the redirect URL to current page
+    const formNextUrl = document.getElementById('formNextUrl') as HTMLInputElement;
+    if (formNextUrl) {
+      formNextUrl.value = window.location.href + '#contact';
     }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!validateForm()) return;
-
-    setIsSubmitting(true);
-    
-    try {
-      // Use Google Forms integration
-      const { emailService } = await import('@/services');
-      
-      // Option 1: Direct submission to Google Forms
-      const result = await emailService.send(formData);
-      
-      if (result.success) {
-        setIsSubmitted(true);
-        setFormData({ name: '', email: '', company: '', message: '' });
-      } else {
-        // Fallback: Open Google Form in new tab with pre-filled data
-        emailService.redirectToGoogleForm(formData);
-        setIsSubmitted(true);
-      }
-    } catch (error) {
-      console.error('Form submission error:', error);
-      // Fallback: Open Google Form in new tab
-      const { emailService } = await import('@/services');
-      emailService.redirectToGoogleForm(formData);
-      setIsSubmitted(true);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleInputChange = (field: keyof ContactFormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-    if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: undefined }));
-    }
-  };
-
-  if (isSubmitted) {
-    return (
-      <section
-        id="contact"
-        ref={ref}
-        className="section-padding bg-bg-secondary/30"
-      >
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-2xl mx-auto"
-          >
-            <GlowEffect intensity="high">
-              <Card>
-                <div className="text-6xl mb-6">✅</div>
-                <h2 className="text-3xl font-bold text-gradient mb-4">
-                  Message Sent Successfully!
-                </h2>
-                <p className="text-text-secondary mb-6">
-                  Thank you for reaching out. We'll get back to you within 24 hours.
-                </p>
-                <Button
-                  onClick={() => setIsSubmitted(false)}
-                  variant="secondary"
-                >
-                  Send Another Message
-                </Button>
-              </Card>
-            </GlowEffect>
-          </motion.div>
-        </div>
-      </section>
-    );
-  }
+  }, []);
 
   return (
-    <section
-      id="contact"
-      ref={ref}
-      className="section-padding relative"
-    >
-      <div className="container-custom relative z-30">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={hasIntersected ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient mb-6">
-            Get In Touch
-          </h2>
-          <p className="text-lg sm:text-xl text-text-secondary max-w-3xl mx-auto px-4">
-            Ready to start your next project? Let's discuss how we can help bring your ideas to life.
-          </p>
-        </motion.div>
+    <section id="contact" className="py-16 sm:py-24 bg-slate-50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100 flex flex-col md:flex-row">
+          {/* Contact Info Side */}
+          <div className="bg-slate-900 p-6 sm:p-10 text-white md:w-2/5 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl sm:text-2xl font-bold mb-6">Let's discuss your vision</h3>
+              <p className="text-slate-300 mb-8">
+                Ready to scale? Our team is ready to audit your current stack or build from the
+                ground up.
+              </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto px-4">
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={hasIntersected ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <GlowEffect intensity="medium">
-              <Card className="h-full">
-                <h3 className="text-2xl font-bold text-text-primary mb-6">
-                  Let's Start a Conversation
-                </h3>
-                
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="text-lg font-semibold text-glow-primary mb-2">
-                      Email Us
-                    </h4>
-                    <a
-                      href={`mailto:${SITE_CONFIG.email}`}
-                      className="text-text-secondary hover:text-glow-primary transition-colors duration-300"
-                    >
-                      {SITE_CONFIG.email}
-                    </a>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold text-glow-primary mb-2">
-                      Response Time
-                    </h4>
-                    <p className="text-text-secondary">
-                      We typically respond within 24 hours
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold text-glow-primary mb-2">
-                      What We Offer
-                    </h4>
-                    <ul className="text-text-secondary space-y-2">
-                      <li>• Free initial consultation</li>
-                      <li>• Custom project proposals</li>
-                      <li>• Transparent pricing</li>
-                      <li>• Ongoing support</li>
-                    </ul>
-                  </div>
-                </div>
-              </Card>
-            </GlowEffect>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={hasIntersected ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <GlowEffect intensity="medium">
-              <Card>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <Input
-                      label="Name *"
-                      value={formData.name}
-                      onChange={(e) => handleInputChange('name', e.target.value)}
-                      error={errors.name}
-                      placeholder="Your full name"
-                    />
-                    <Input
-                      label="Email *"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
-                      error={errors.email}
-                      placeholder="your@email.com"
-                    />
-                  </div>
-
-                  <Input
-                    label="Company"
-                    value={formData.company}
-                    onChange={(e) => handleInputChange('company', e.target.value)}
-                    placeholder="Your company name (optional)"
-                  />
-
-                  <div>
-                    <label className="block text-sm font-medium text-text-secondary mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      value={formData.message}
-                      onChange={(e) => handleInputChange('message', e.target.value)}
-                      placeholder="Tell us about your project..."
-                      rows={6}
-                      className="w-full px-4 py-3 glass-light border border-bg-tertiary rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-glow-primary focus:border-transparent transition-all duration-300 resize-none"
-                    />
-                    {errors.message && (
-                      <motion.p
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-sm text-red-500 mt-2"
-                      >
-                        {errors.message}
-                      </motion.p>
-                    )}
-                  </div>
-
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    isLoading={isSubmitting}
-                    className="w-full relative z-40"
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <svg
+                    className="w-5 h-5 text-brand-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </Button>
-                </form>
-              </Card>
-            </GlowEffect>
-          </motion.div>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                  <span className="break-all">contact@opscorelabs.com</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <svg
+                    className="w-5 h-5 text-brand-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    ></path>
+                  </svg>
+                  <span>Global (Remote First)</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 md:mt-0">
+              <p className="text-sm text-slate-400">
+                Average Response Time:{' '}
+                <span className="text-white font-semibold">Under 2 Hours</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Form Side */}
+          <div className="p-6 sm:p-10 md:w-3/5">
+            <form
+              id="contactForm"
+              action="https://formsubmit.co/contact@opscorelabs.com"
+              method="POST"
+              className="space-y-6"
+              onSubmit={handleSubmit}
+            >
+              {/* Hidden Config: Auto-Response & Template */}
+              <input type="hidden" name="_subject" value="New Inquiry - OpsCore Labs" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input
+                type="hidden"
+                name="_autoresponse"
+                value="Thank you for contacting OpsCore Labs. We have received your message and will get back to you shortly."
+              />
+              <input type="hidden" name="_next" id="formNextUrl" value="" />
+
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">
+                  Work Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-1">
+                  Project Details
+                </label>
+                <textarea
+                  name="message"
+                  id="message"
+                  rows={4}
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition"
+                ></textarea>
+              </div>
+              <button
+                id="submitBtn"
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-3 px-6 rounded-lg bg-brand-600 text-white font-bold text-lg hover:bg-brand-700 transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
+              {status.type && (
+                <p
+                  id="formStatus"
+                  className={`text-center text-sm ${
+                    status.type === 'success' ? 'text-green-600' : 'text-red-500'
+                  }`}
+                >
+                  {status.message}
+                </p>
+              )}
+              {/* Fallback text */}
+              <p className="text-center text-xs text-slate-400 mt-2">
+                Having trouble? Email us directly at{' '}
+                <a href="mailto:contact@opscorelabs.com" className="text-brand-500 underline">
+                  contact@opscorelabs.com
+                </a>
+              </p>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -264,3 +165,4 @@ export const Contact: React.FC = () => {
 };
 
 export default Contact;
+

@@ -4,56 +4,46 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
-      colors: {
-        // Dark theme colors
-        'bg-primary': '#0a0a0a',
-        'bg-secondary': '#1a1a1a',
-        'bg-tertiary': '#2a2a2a',
-        
-        // Glow colors
-        'glow-primary': '#00d4ff',
-        'glow-secondary': '#ff006e',
-        'glow-accent': '#8338ec',
-        
-        // Text colors
-        'text-primary': '#ffffff',
-        'text-secondary': '#a0a0a0',
-        'text-muted': '#666666',
-      },
       fontFamily: {
-        'primary': ['Inter', 'sans-serif'],
-        'mono': ['JetBrains Mono', 'monospace'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+      },
+      colors: {
+        brand: {
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe', 
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
+        },
+        slate: {
+          850: '#15202e',
+        }
+      },
+      boxShadow: {
+        'card': '0 0 0 1px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.04)',
+        'card-hover': '0 0 0 1px rgba(0,0,0,0.03), 0 10px 40px -10px rgba(0,0,0,0.1)',
       },
       animation: {
-        'glow': 'glow 2s ease-in-out infinite alternate',
         'float': 'float 6s ease-in-out infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'spin-slow': 'spin 8s linear infinite',
+        'marquee': 'marquee 30s linear infinite',
       },
       keyframes: {
-        glow: {
-          '0%': { 
-            boxShadow: '0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 60px #00d4ff',
-          },
-          '100%': { 
-            boxShadow: '0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff',
-          },
-        },
         float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
         },
-      },
-      backdropBlur: {
-        'xs': '2px',
-      },
-      spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
-        '128': '32rem',
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
     },
   },

@@ -1,157 +1,150 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Button, Logo } from '@/components/ui';
-import { NAVIGATION_ITEMS } from '@/utils/constants';
-import { cn } from '@/utils/helpers';
+import { useMobileMenu, useNavbarScroll } from '@/hooks';
 
-export const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const Header = () => {
+  const { isOpen, toggle, close } = useMobileMenu();
+  const hasShadow = useNavbarScroll();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMobileMenuOpen(false);
+  const handleLinkClick = () => {
+    close();
   };
 
   return (
-    <>
-      {/* Backdrop overlay for mobile menu */}
-      {isMobileMenuOpen && (
-        <motion.div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-      )}
-      
-      <motion.header
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          isScrolled
-            ? 'glass-nav'
-            : 'bg-transparent'
-        )}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-16 sm:h-18">
+    <nav
+      className={`fixed w-full z-50 glass-nav transition-all duration-300 ${
+        hasShadow ? 'shadow-md' : ''
+      }`}
+      id="navbar"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Logo size="sm" className="cursor-pointer" />
+          <a
+            href="#hero"
+            className="flex-shrink-0 flex items-center gap-3 cursor-pointer hover:opacity-80 transition"
+            onClick={handleLinkClick}
+          >
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg overflow-hidden bg-white">
+              <img
+                src="https://opscorelabs.com/logo.png"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.onerror = null;
+                  if (target.parentElement) {
+                    target.parentElement.innerHTML =
+                      '<div class="w-full h-full bg-brand-600 flex items-center justify-center text-white font-bold">O</div>';
+                  }
+                }}
+                alt="OpsCore Labs Logo"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <span className="font-heading font-bold text-xl tracking-tight text-slate-900">
+              OpsCore<span className="text-brand-600">Labs</span>
+            </span>
+          </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {NAVIGATION_ITEMS.map((item) => (
-              <motion.button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="text-text-secondary hover:text-glow-primary transition-colors duration-300 font-medium"
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.2 }}
-              >
-                {item.name}
-              </motion.button>
-            ))}
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button
-              onClick={() => scrollToSection('#contact')}
-              variant="primary"
-              size="sm"
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a
+              href="#services"
+              className="text-sm font-medium text-slate-700 hover:text-brand-600 transition"
             >
-              Get In Touch
-            </Button>
+              Solutions
+            </a>
+            <a
+              href="#tech"
+              className="text-sm font-medium text-slate-700 hover:text-brand-600 transition"
+            >
+              Technology
+            </a>
+            <a
+              href="#process"
+              className="text-sm font-medium text-slate-700 hover:text-brand-600 transition"
+            >
+              Process
+            </a>
+            <a
+              href="#about"
+              className="text-sm font-medium text-slate-700 hover:text-brand-600 transition"
+            >
+              Company
+            </a>
+            <a
+              href="#contact"
+              className="px-5 py-2.5 rounded-full bg-brand-600 text-white text-sm font-semibold shadow-md hover:bg-brand-700 hover:shadow-lg transition transform active:scale-95"
+            >
+              Get a Consultation
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <motion.button
-            className="md:hidden p-3 glass-light rounded-lg border border-glow-primary/20 hover:border-glow-primary/40 transition-all duration-300"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="w-6 h-6 flex flex-col justify-center space-y-1.5">
-              <motion.span
-                className="w-full h-0.5 bg-glow-primary rounded-full"
-                animate={{
-                  rotate: isMobileMenuOpen ? 45 : 0,
-                  y: isMobileMenuOpen ? 6 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-              />
-              <motion.span
-                className="w-full h-0.5 bg-glow-primary rounded-full"
-                animate={{
-                  opacity: isMobileMenuOpen ? 0 : 1,
-                }}
-                transition={{ duration: 0.3 }}
-              />
-              <motion.span
-                className="w-full h-0.5 bg-glow-primary rounded-full"
-                animate={{
-                  rotate: isMobileMenuOpen ? -45 : 0,
-                  y: isMobileMenuOpen ? -6 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-              />
-            </div>
-          </motion.button>
-        </div>
-
-        {/* Mobile Menu */}
-        <motion.div
-          className="md:hidden overflow-hidden"
-          initial={false}
-          animate={{
-            height: isMobileMenuOpen ? 'auto' : 0,
-            opacity: isMobileMenuOpen ? 1 : 0,
-          }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-        >
-          <div className="py-6 space-y-1 border-t border-glow-primary/20 bg-bg-primary/80 backdrop-blur-sm">
-            {NAVIGATION_ITEMS.map((item, index) => (
-              <motion.button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left text-text-secondary hover:text-glow-primary transition-all duration-300 font-medium py-4 px-4 rounded-lg hover:bg-glow-primary/10"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ 
-                  opacity: isMobileMenuOpen ? 1 : 0,
-                  x: isMobileMenuOpen ? 0 : -20
-                }}
-                transition={{ 
-                  duration: 0.3, 
-                  delay: isMobileMenuOpen ? index * 0.1 : 0 
-                }}
-                whileHover={{ x: 8 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {item.name}
-              </motion.button>
-            ))}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={toggle}
+              className="text-slate-700 hover:text-brand-600 focus:outline-none p-2"
+              aria-label="Toggle menu"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
           </div>
-        </motion.div>
+        </div>
       </div>
-      </motion.header>
-    </>
+
+      {/* Mobile Menu */}
+      <div
+        className={`${
+          isOpen ? 'block' : 'hidden'
+        } md:hidden bg-white border-t border-slate-100 absolute w-full left-0 shadow-xl`}
+        id="mobile-menu"
+      >
+        <div className="px-4 pt-2 pb-6 space-y-1">
+          <a
+            href="#services"
+            className="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600"
+            onClick={handleLinkClick}
+          >
+            Solutions
+          </a>
+          <a
+            href="#tech"
+            className="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600"
+            onClick={handleLinkClick}
+          >
+            Technology
+          </a>
+          <a
+            href="#process"
+            className="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600"
+            onClick={handleLinkClick}
+          >
+            Process
+          </a>
+          <a
+            href="#about"
+            className="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600"
+            onClick={handleLinkClick}
+          >
+            Company
+          </a>
+          <a
+            href="#contact"
+            className="block mt-4 px-3 py-3 text-center rounded-md font-bold bg-brand-600 text-white"
+            onClick={handleLinkClick}
+          >
+            Get a Consultation
+          </a>
+        </div>
+      </div>
+    </nav>
   );
 };
 
 export default Header;
+
