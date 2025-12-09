@@ -1,5 +1,5 @@
 import { Header, Footer } from '@/components/layout';
-import { Hero, Stats, Services, Technology, Process, About, Contact } from '@/components/sections';
+import { Hero, Stats, Services, Technology, Process, Blogs, About, Contact } from '@/components/sections';
 import '@/styles/globals.css';
 
 const App = () => {
@@ -12,6 +12,7 @@ const App = () => {
         <Services />
         <Technology />
         <Process />
+        <Blogs />
         <About />
         <Contact />
       </main>
