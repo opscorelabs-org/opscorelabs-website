@@ -17,7 +17,6 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
-          animations: ['framer-motion', 'three', '@react-three/fiber', '@react-three/drei'],
         },
       },
     },
@@ -29,6 +28,6 @@ export default defineConfig({
     host: true,
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'framer-motion'],
+    include: ['react', 'react-dom'],
   },
 })

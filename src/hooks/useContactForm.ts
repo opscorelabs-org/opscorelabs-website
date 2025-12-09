@@ -13,7 +13,6 @@ export const useContactForm = () => {
     setStatus({ message: '', type: null });
 
     const form = e.currentTarget;
-    const formData = new FormData(form);
 
     // Create hidden iframe for form submission
     const iframe = document.createElement('iframe');

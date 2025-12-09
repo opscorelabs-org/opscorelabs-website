@@ -267,20 +267,20 @@ const Technology = () => {
         isDragging = false;
       };
 
-      wrapper.addEventListener('mousedown', handleMouseDown);
-      window.addEventListener('mousemove', handleMouseMove);
+      wrapper.addEventListener('mousedown', handleMouseDown as EventListener);
+      window.addEventListener('mousemove', handleMouseMove as EventListener);
       window.addEventListener('mouseup', handleMouseUp);
-      wrapper.addEventListener('touchstart', handleTouchStart);
-      window.addEventListener('touchmove', handleTouchMove);
+      wrapper.addEventListener('touchstart', handleTouchStart as EventListener, { passive: false });
+      window.addEventListener('touchmove', handleTouchMove as EventListener, { passive: false });
       window.addEventListener('touchend', handleTouchEnd);
 
       return () => {
         cancelAnimationFrame(animationId);
-        wrapper.removeEventListener('mousedown', handleMouseDown);
-        window.removeEventListener('mousemove', handleMouseMove);
+        wrapper.removeEventListener('mousedown', handleMouseDown as EventListener);
+        window.removeEventListener('mousemove', handleMouseMove as EventListener);
         window.removeEventListener('mouseup', handleMouseUp);
-        wrapper.removeEventListener('touchstart', handleTouchStart);
-        window.removeEventListener('touchmove', handleTouchMove);
+        wrapper.removeEventListener('touchstart', handleTouchStart as EventListener);
+        window.removeEventListener('touchmove', handleTouchMove as EventListener);
         window.removeEventListener('touchend', handleTouchEnd);
       };
     });
