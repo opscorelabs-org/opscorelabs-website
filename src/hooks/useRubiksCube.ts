@@ -7,7 +7,8 @@ export const useRubiksCube = () => {
   const [currentY, setCurrentY] = useState(-35);
   const [isDragging, setIsDragging] = useState(false);
   const autoRotateRef = useRef(true);
-  const animationIdRef = useRef<number>();
+  // React 19 typings require an explicit initial value for refs
+  const animationIdRef = useRef<number | null>(null);
   const startXRef = useRef(0);
   const startYRef = useRef(0);
   const lastXRef = useRef(-25);
@@ -28,7 +29,7 @@ export const useRubiksCube = () => {
     animationIdRef.current = requestAnimationFrame(animateCube);
 
     return () => {
-      if (animationIdRef.current) {
+      if (animationIdRef.current !== null) {
         cancelAnimationFrame(animationIdRef.current);
       }
     };
